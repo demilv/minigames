@@ -28,19 +28,24 @@ function App() {
         <div className="footer">
           <div className='footerSuperior'>
             <div className='footerSuperior_left'>
+              <img />
               <h2></h2>
               <h4></h4>
             </div>
             <div>
-          
+              <h3>About Us</h3>
+              <p></p>
             </div>
             <div>
-
-            </div>
+              <h3>Follow Us</h3>
+              <img />
+              <img />
+              <img />
+            </div>            
           </div>
 
           <div className='footerInferior'>
-
+            <p> All Rights Reserved bla bla bla</p>
           </div>
         </div>
       </div>
