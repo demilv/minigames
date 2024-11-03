@@ -26,7 +26,22 @@ function App() {
         </div>
 
         <div className="footer">
+          <div className='footerSuperior'>
+            <div className='footerSuperior_left'>
+              <h2></h2>
+              <h4></h4>
+            </div>
+            <div>
           
+            </div>
+            <div>
+
+            </div>
+          </div>
+
+          <div className='footerInferior'>
+
+          </div>
         </div>
       </div>
     </Router>
