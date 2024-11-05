@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const productFrame = styled.div<{inverse: boolean}>`
+export const ProductFrame = styled.div<{inverse?: boolean}>`
     height:30em;
     width: 100%;
     background-color: black;

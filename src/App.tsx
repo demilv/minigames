@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Shop from './pages/shop/shop';
-
+import Support from './pages/support/support';
+import Login from './pages/login/login';
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
         <div className="body">
           <Routes>
             <Route path='/' element={<Shop />}></Route>
-            <Route path='/' element={<Shop />}></Route>
-            <Route path='/' element={<Shop />}></Route>
+            <Route path='/support' element={<Support />}></Route>
+            <Route path='/logIn' element={<Login />}></Route>
           </Routes>          
         </div>
 

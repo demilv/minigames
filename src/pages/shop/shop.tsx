@@ -1,21 +1,21 @@
-
+import { ProductFrame } from "../../styledC/productFrame";
 
 function Shop (){
 
     return (
         <>
-            <div className="producto">
+            <ProductFrame>
                 <div className="producto__ladoInfo">
-                    <h1></h1>
-                    <h5></h5>
+                    <h1>Ahoy</h1>
+                    <h5>Mahalo!</h5>
                     <div className="producto__ladoInfo__acciones">
                         <button> Buy!</button>
                         <button> Try it!</button>
                     </div>
                 </div>
-                <img />
-            </div>
-            <div className="producto--inverso">
+                <img src="./ultimate-tic-tac-toe-multiplayer_big.webp"/>
+            </ProductFrame>
+            <ProductFrame inverse={true}>
             <div className="producto__ladoInfo">
                     <h1></h1>
                     <h5></h5>
@@ -25,8 +25,8 @@ function Shop (){
                     </div>
                 </div>
                 <img />
-            </div>
-            <div className="producto">
+            </ProductFrame>
+            <ProductFrame>
             <div className="producto__ladoInfo">
                     <h1></h1>
                     <h5></h5>
@@ -36,7 +36,7 @@ function Shop (){
                     </div>
                 </div>
                 <img />
-            </div>
+            </ProductFrame>
         </>
     )
 
