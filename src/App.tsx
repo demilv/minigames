@@ -12,8 +12,9 @@ function App() {
       <div className="mainContainer">
         <HeaderContainer> 
           <Logo>
-            <TitleImg></TitleImg>
+            <TitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></TitleImg>
             <Title>Minijuegos TX</Title>
+            <TitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></TitleImg>
           </Logo>
             <div className="menuButtons">
               <Link to='/'><button>Tienda</button></Link>
