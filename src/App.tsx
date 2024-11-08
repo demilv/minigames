@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
-import { HeaderContainer, Title, Logo, TitleImg } from './styledC/Header';
+import { HeaderContainer, Title, Logo, TitleImg, ButtonLogo } from './styledC/Header';
 
 
 function App() {
@@ -16,11 +16,11 @@ function App() {
             <Title>Minijuegos TX</Title>
             <TitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></TitleImg>
           </Logo>
-            <div className="menuButtons">
-              <Link to='/'><button>Tienda</button></Link>
-              <Link to ='/support'><button>Soporte</button></Link>
-              <Link to='/logIn'><button>Log In</button></Link>
-            </div>
+          <Logo lado={"derecho"}>
+            <Link to='/'><ButtonLogo>Tienda</ButtonLogo></Link>
+            <Link to ='/support'><ButtonLogo>Soporte</ButtonLogo></Link>
+            <Link to='/logIn'><ButtonLogo>Log In</ButtonLogo></Link>
+          </Logo>
         </HeaderContainer>
 
         <div className="body">

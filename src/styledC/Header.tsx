@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer= styled.div`
-    height:10em;
+    height:8em;
     width: 100%;
     background-color: #1c1c1c;
     display: flex;
@@ -20,11 +20,29 @@ export const Title = styled.h2`
 
 export const TitleImg = styled.img<{inverse?: boolean}>`
     width:8em;
-    transform: ${props => props.inverse ? 'rotate(45deg)' : 'rotate(0deg)'};
+    transform: ${props => props.inverse ? 'rotate(36deg)' : 'rotate(0deg)'};
 `
 
-export const Logo = styled.div`
+export const Logo = styled.div<{lado?: string}>`
     display: flex;
     flex-direction:row;
-    gap: 1em;
+    gap: ${props => props.lado === "derecho" ? '3em' : '1em'};
+`
+
+export const ButtonLogo = styled.button`
+    background: none;
+    border:none;
+    color: #e5e5e5;
+    font-size: 1em;    
+    font-family: "Press Start 2P";
+    transition: 0.5s ease;
+    padding: 3.1em 1em;
+
+    &:hover {
+        border-top: outset;
+        border-color: #ffff21;
+        border-width: 10px;
+        color: #e1d254;
+        background: #757575;
+    }
 `
