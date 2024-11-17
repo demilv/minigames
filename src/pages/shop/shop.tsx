@@ -4,7 +4,7 @@ function Shop (){
 
     return (
         <>
-            <ProductFrame back={"tic-tac-toe-game-vector-icon-sign-seamless-pattern-on-a-gray-background-GT7G95.jpg"}>
+            <ProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"}>
                 <div className="producto__ladoInfo">
                     <h1>Ahoy</h1>
                     <h5>Mahalo!</h5>
@@ -15,7 +15,7 @@ function Shop (){
                 </div>
                 <img src="./ultimate-tic-tac-toe-multiplayer_big.webp"/>
             </ProductFrame>
-            <ProductFrame back={"pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"} inverse={true}>
+            <ProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
             <div className="producto__ladoInfo">
                     <h1></h1>
                     <h5></h5>
@@ -26,7 +26,7 @@ function Shop (){
                 </div>
                 <img />
             </ProductFrame>
-            <ProductFrame back={"pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"}>
+            <ProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"}>
             <div className="producto__ladoInfo">
                     <h1></h1>
                     <h5></h5>
