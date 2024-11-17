@@ -21,7 +21,7 @@ export const ProductFrame = styled.div<{inverse?: boolean, back: string}>`
         background-size: 100%;
         background-position: center;
         transform: ${props => props.inverse ? 'scaleX(-1)' : 'none'}; 
-        z-index: -1;
+        z-index: 1;
     }
 
 `
