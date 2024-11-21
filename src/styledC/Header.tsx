@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const HeaderContainer= styled.div`
-    height:8em;
+    height:7.9em;
     width: 100%;
-    background-color: #1c1c1c;
+    background-color: #bcbcbc;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
@@ -11,6 +11,14 @@ export const HeaderContainer= styled.div`
     align-items:center;    
     position:fixed;
     z-index:9999999;
+    opacity: 70%;
+    border-radius:0 0 1em 1em;
+    transition: 0.3s ease;
+
+
+    &:hover {
+        opacity:100%
+    }
 `
 
 export const Title = styled.h2`
@@ -34,7 +42,7 @@ export const Logo = styled.div<{lado?: string}>`
 export const ButtonLogo = styled.button`
     background: none;
     border:none;
-    color: #e5e5e5;
+    color: #fbfbfb;
     font-size: 1em;    
     font-family: "Press Start 2P";
     transition: 0.5s ease;
