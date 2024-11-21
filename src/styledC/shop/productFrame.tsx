@@ -9,6 +9,7 @@ export const ProductFrame = styled.div<{inverse?: boolean, back: string}>`
     align-items:center;
     position: relative;
     overflow:hidden;
+    z-index:20;
     &::before {
         content: "";
         position: absolute;

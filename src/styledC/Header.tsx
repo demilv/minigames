@@ -8,7 +8,9 @@ export const HeaderContainer= styled.div`
     flex-direction: row;
     justify-content:space-between;
     padding: 0 4em;
-    align-items:center;
+    align-items:center;    
+    position:fixed;
+    z-index:9999999;
 `
 
 export const Title = styled.h2`
