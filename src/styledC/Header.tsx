@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderContainer= styled.div`
+export const StyledHeaderContainer= styled.div`
     height:7.9em;
     width: 100%;
     background-color: #bcbcbc;
@@ -21,25 +21,25 @@ export const HeaderContainer= styled.div`
     }
 `
 
-export const Title = styled.h2`
+export const StyledTitle = styled.h2`
     font-family:"Press Start 2P";
     color: #fbfbfb;
     font-size: 1.3em;
     margin-top:2.6em
 `
 
-export const TitleImg = styled.img<{inverse?: boolean}>`
+export const StyledTitleImg = styled.img<{inverse?: boolean}>`
     width:8em;
     transform: ${props => props.inverse ? 'rotate(36deg)' : 'rotate(0deg)'};
 `
 
-export const Logo = styled.div<{lado?: string}>`
+export const StyledLogo = styled.div<{lado?: string}>`
     display: flex;
     flex-direction:row;
     gap: ${props => props.lado === "derecho" ? '3em' : '1em'};
 `
 
-export const ButtonLogo = styled.button`
+export const StyledButtonLogo = styled.button`
     background: none;
     border:none;
     color: #fbfbfb;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductFrame = styled.div<{inverse?: boolean, back: string}>`
+export const StyledProductFrame = styled.div<{inverse?: boolean, back: string}>`
     height:50em;
     width: 100%;
     display: flex;
@@ -28,9 +28,10 @@ export const ProductFrame = styled.div<{inverse?: boolean, back: string}>`
 
 `
 
-export const LadoInfo = styled.div`
+export const StyledLadoInfo = styled.div`
     z-index:1;
     margin: 15% 0 0 2em;
+    padding: 5em 7em 0 3em;
     height:50%;
     min-width:20em;    
     width:30%;
@@ -48,4 +49,20 @@ export const LadoInfo = styled.div`
     }
 
     
+`
+
+export const StyledTitleProduct = styled.h1`
+    font-size:4em;
+    color: #fbdfcd;
+    font-family: "VT323";
+    margin-bottom:2em;
+`
+
+export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
+    font-size:1.5em;
+    font-family: "VT323";
+    color: #323232;
+    margin-bottom:0.3em;
+    text-align: ${props => props.inverse ? 'left' : 'right'};
+
 `

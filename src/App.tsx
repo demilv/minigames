@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
-import { HeaderContainer, Title, Logo, TitleImg, ButtonLogo } from './styledC/Header';
+import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
 
 
 function App() {
@@ -10,18 +10,18 @@ function App() {
   return (
     <Router>
       <div className="mainContainer">
-        <HeaderContainer> 
-          <Logo>
-            <TitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></TitleImg>
-            <Title>Minijuegos TX</Title>
-            <TitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></TitleImg>
-          </Logo>
-          <Logo lado={"derecho"}>
-            <Link to='/'><ButtonLogo>Tienda</ButtonLogo></Link>
-            <Link to ='/support'><ButtonLogo>Soporte</ButtonLogo></Link>
-            <Link to='/logIn'><ButtonLogo>Log In</ButtonLogo></Link>
-          </Logo>
-        </HeaderContainer>
+        <StyledHeaderContainer> 
+          <StyledLogo>
+            <StyledTitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
+            <StyledTitle>Minijuegos TX</StyledTitle>
+            <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
+          </StyledLogo>
+          <StyledLogo lado={"derecho"}>
+            <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
+            <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
+            <Link to='/logIn'><StyledButtonLogo>Log In</StyledButtonLogo></Link>
+          </StyledLogo>
+        </StyledHeaderContainer>
 
         <div className="body">
           <Routes>
