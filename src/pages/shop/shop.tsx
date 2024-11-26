@@ -1,7 +1,6 @@
 import { StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/shop/main";
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
+import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
 
 function Shop (){
 
@@ -11,10 +10,10 @@ function Shop (){
                 <StyledLadoInfo>
                     <StyledTitleProduct>Ultimate TTT</StyledTitleProduct>
                     <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
-                    <ButtonGroup>
-                        <Button> Buy!</Button>
-                        <Button> Try it!</Button>
-                    </ButtonGroup>
+                    <MUIButtonGroup>
+                        <MUIButton> Buy!</MUIButton>
+                        <MUIButton> Try it!</MUIButton>
+                    </MUIButtonGroup>
                 </StyledLadoInfo>
                 <img src="./Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"/>
             </StyledProductFrame>

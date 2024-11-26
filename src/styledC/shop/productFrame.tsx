@@ -30,9 +30,9 @@ export const StyledProductFrame = styled.div<{inverse?: boolean, back: string}>`
 
 export const StyledLadoInfo = styled.div`
     z-index:1;
-    margin: 15% 0 0 2em;
-    padding: 5em 7em 0 3em;
-    height:50%;
+    margin: 10% 0 0 2em;
+    padding: 8em 3em 0 3em;
+    height:70%;
     min-width:20em;    
     width:30%;
     background-color:#252525;
@@ -55,14 +55,14 @@ export const StyledTitleProduct = styled.h1`
     font-size:4em;
     color: #fbdfcd;
     font-family: "VT323";
-    margin-bottom:2em;
+    margin-bottom:3em;
 `
 
 export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     font-size:1.5em;
     font-family: "VT323";
     color: #323232;
-    margin-bottom:0.5em;
+    margin-bottom:1.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 
 `
