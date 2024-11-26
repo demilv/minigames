@@ -62,7 +62,7 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     font-size:1.5em;
     font-family: "VT323";
     color: #323232;
-    margin-bottom:0.3em;
+    margin-bottom:0.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 
 `
