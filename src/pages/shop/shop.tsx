@@ -1,5 +1,5 @@
 import { StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
-import { StyledMain } from "../../styledC/shop/main";
+import { StyledMain } from "../../styledC/shop/Main";
 import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
 import Trial1 from "./trial1";
 import { useState } from "react";
@@ -22,7 +22,7 @@ function Shop (){
                         <MUIButton onClick={openTrial1}> Try it!</MUIButton>
                     </MUIButtonGroup>
                 </StyledLadoInfo>
-                {isTrial1Open && <Trial1 onClose={closeTrial1} />}
+                {isTrial1Open && <Trial1 closeTrial1={closeTrial1} />}
             </StyledProductFrame>
             <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
                 <article className="producto__ladoInfo">
