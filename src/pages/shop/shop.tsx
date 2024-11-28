@@ -1,21 +1,28 @@
 import { StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/shop/main";
 import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
+import Trial1 from "./trial1";
+import { useState } from "react";
 
 function Shop (){
 
+    const [isTrial1Open, setTrial1Open] = useState(false);
+
+    const openTrial1 = () => setTrial1Open(true); 
+    const closeTrial1 = () => setTrial1Open(false); 
+
     return (
         <StyledMain>        
-            <StyledProductFrame back={"tic-tac-toe-game-vector-icon-sign-seamless-pattern-on-a-gray-background-GT7G95.jpg"}>
+            <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
                 <StyledLadoInfo>
                     <StyledTitleProduct>Ultimate TTT</StyledTitleProduct>
                     <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
                     <MUIButtonGroup>
                         <MUIButton> Buy!</MUIButton>
-                        <MUIButton> Try it!</MUIButton>
+                        <MUIButton onClick={openTrial1}> Try it!</MUIButton>
                     </MUIButtonGroup>
                 </StyledLadoInfo>
-                <img src="./Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"/>
+                {isTrial1Open && <Trial1 onClose={closeTrial1} />}
             </StyledProductFrame>
             <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
                 <article className="producto__ladoInfo">

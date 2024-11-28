@@ -30,7 +30,7 @@ export const StyledProductFrame = styled.div<{inverse?: boolean, back: string}>`
 
 export const StyledLadoInfo = styled.div`
     z-index:1;
-    margin: 10% 0 0 2em;
+    margin: 5% 0 0 10em;
     padding: 8em 3em 0 3em;
     height:70%;
     min-width:20em;    
