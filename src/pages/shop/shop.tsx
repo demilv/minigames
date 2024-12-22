@@ -1,4 +1,4 @@
-import { StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
+import { StyledInstructions, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/shop/Main";
 import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
 import Trial1 from "./trial1";
@@ -24,6 +24,7 @@ function Shop (){
                             <MUIButton onClick={openTrial1}> Try it!</MUIButton>
                         </MUIButtonGroup>
                     </StyledLadoInfo>
+                    <StyledInstructions>Instructions</StyledInstructions>
                 </StyledProductFrame>
                 <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
                     <article className="producto__ladoInfo">
@@ -34,7 +35,6 @@ function Shop (){
                             <button> Try it!</button>
                         </div>
                     </article>
-                    <img />
                 </StyledProductFrame>
                 <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"}>
                     <article className="producto__ladoInfo">
