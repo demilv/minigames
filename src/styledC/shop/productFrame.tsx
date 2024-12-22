@@ -1,11 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const rainbowAnimation = keyframes`
+  0% { padding-bottom: 0; }
+  50% { padding-bottom: 1em; }
+  100% { padding-bottom: 0; }
+`;
 
 export const StyledProductFrame = styled.div<{inverse?: boolean, back: string}>`
     height:50em;
     width: 100%;
     display: flex;
     justify-content: ${props => props.inverse ? 'flex-end' : 'start'};
-    justify-content: space-between;
     align-items:center;
     position: relative;
     overflow:hidden;
@@ -30,7 +35,7 @@ export const StyledProductFrame = styled.div<{inverse?: boolean, back: string}>`
 
 export const StyledLadoInfo = styled.div`
     z-index:1;
-    margin: 5% 0 0 35%;
+    margin: 5% 0 0 0;
     padding: 8em 3em 0 3em;
     height:70%;
     min-width:20em;    
@@ -63,11 +68,20 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     margin-bottom:1.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 `
-
 export const StyledInstructions = styled.h4`
     font-size:2.5em;
     font-family: "VT323";    
-    color: #323232;
     z-index:9;
-    margin: 2em 18% 0 0;
+    color: #323232;
+    margin: 2em 0 0 2em;
+    animation: ${rainbowAnimation} 4s linear infinite;
+`
+export const StyledScores = styled.h4`
+    font-size:2.5em;
+    font-family: "VT323";    
+    z-index:9;
+    color: #323232;
+    margin: 2em 2em 0 0;
+    padding-left:23%;
+    animation: ${rainbowAnimation} 4s linear infinite;
 `

@@ -1,4 +1,4 @@
-import { StyledInstructions, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledTitleProduct } from "../../styledC/shop/productFrame";
+import { StyledInstructions, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledScores, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/shop/Main";
 import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
 import Trial1 from "./trial1";
@@ -16,6 +16,7 @@ function Shop (){
             {isTrial1Open && <Trial1 closeTrial1={closeTrial1} />}
             <StyledMain>        
                 <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
+                    <StyledScores>Ranking</StyledScores>
                     <StyledLadoInfo>
                         <StyledTitleProduct>Ultimate TTT</StyledTitleProduct>
                         <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
