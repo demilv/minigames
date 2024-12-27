@@ -68,20 +68,25 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     margin-bottom:1.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 `
-export const StyledInstructions = styled.h4`
-    font-size:2.5em;
-    font-family: "VT323";    
-    z-index:9;
-    color: #323232;
+export const StyledInstructionsDiv = styled.div`    
     margin: 2em 0 0 2em;
     animation: ${rainbowAnimation} 4s linear infinite;
 `
-export const StyledScores = styled.h4`
+export const StyledScoresDiv = styled.div`    
+    margin: 2em 2em 0 0;
+    padding-left:23%;
+    animation: ${rainbowAnimation} 4s linear infinite;
+`
+
+export const StyledSITitle= styled.h4`
     font-size:2.5em;
     font-family: "VT323";    
     z-index:9;
     color: #323232;
-    margin: 2em 2em 0 0;
-    padding-left:23%;
-    animation: ${rainbowAnimation} 4s linear infinite;
+    margin-bottom: 1em;
+`
+
+export const StyledSIImg = styled.img`
+    width:2em;
+    height:2em;
 `
