@@ -68,22 +68,15 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     margin-bottom:1.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 `
-export const StyledInstructionsDiv = styled.div` 
+export const StyledInstructionsDiv = styled.div<{inverse?: boolean}>` 
     border: none;   
-    margin: 2em 0 0 2em;
+    margin: 2em 0 0 3em;    
+    margin-right: ${props => props.inverse ? '0' : '3em'};
     display:flex;
     flex-direction:column;   
     z-index:9;
     animation: ${movementAnimation} 4s linear infinite;
-`
-export const StyledScoresDiv = styled.div`    
-    border:none;
-    margin: 2em 2em 0 0;
-    display:flex;
-    flex-direction:column;
-    z-index:9;
-    padding-left:23%;
-    animation: ${movementAnimation} 4s linear infinite;
+    padding-left: ${props => props.inverse ? '0' : '22%'}
 `
 
 export const StyledSITitle= styled.h4`
