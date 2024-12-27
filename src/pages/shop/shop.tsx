@@ -18,7 +18,7 @@ function Shop (){
                 <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
                     <StyledScoresDiv>
                         <StyledSITitle>Ranking</StyledSITitle>
-                        <StyledSIImg src="scroll.jpg"/>
+                        <StyledSIImg src="scroll.png"/>
                     </StyledScoresDiv>
                     <StyledLadoInfo>
                         <StyledTitleProduct>Ultimate TTT</StyledTitleProduct>
@@ -30,7 +30,7 @@ function Shop (){
                     </StyledLadoInfo>
                     <StyledInstructionsDiv>
                         <StyledSITitle>Instructions</StyledSITitle>
-                        <StyledSIImg src="scroll.jpg"/>
+                        <StyledSIImg src="scroll.png"/>
                     </StyledInstructionsDiv>
                 </StyledProductFrame>
                 <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>

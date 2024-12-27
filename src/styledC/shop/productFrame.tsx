@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const rainbowAnimation = keyframes`
+const movementAnimation = keyframes`
   0% { padding-bottom: 0; }
   50% { padding-bottom: 1em; }
   100% { padding-bottom: 0; }
@@ -68,25 +68,33 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
     margin-bottom:1.5em;
     text-align: ${props => props.inverse ? 'left' : 'right'};
 `
-export const StyledInstructionsDiv = styled.div`    
+export const StyledInstructionsDiv = styled.div` 
+    border: none;   
     margin: 2em 0 0 2em;
-    animation: ${rainbowAnimation} 4s linear infinite;
+    display:flex;
+    flex-direction:column;   
+    z-index:9;
+    animation: ${movementAnimation} 4s linear infinite;
 `
 export const StyledScoresDiv = styled.div`    
+    border:none;
     margin: 2em 2em 0 0;
+    display:flex;
+    flex-direction:column;
+    z-index:9;
     padding-left:23%;
-    animation: ${rainbowAnimation} 4s linear infinite;
+    animation: ${movementAnimation} 4s linear infinite;
 `
 
 export const StyledSITitle= styled.h4`
     font-size:2.5em;
     font-family: "VT323";    
-    z-index:9;
     color: #323232;
-    margin-bottom: 1em;
+    margin-bottom: 0.3em;
 `
 
 export const StyledSIImg = styled.img`
-    width:2em;
-    height:2em;
+    margin: 0 auto;
+    width:4em;
+    height:4em;
 `
