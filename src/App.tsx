@@ -3,7 +3,7 @@ import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
-import { FooterArea, FooterLinks, FooterThings } from './styledC/Footer';
+import { FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
 
 
 function App() {
@@ -34,9 +34,9 @@ function App() {
 
         <FooterArea>
           <FooterThings>
-            <FooterLinks></FooterLinks>
-            <FooterLinks></FooterLinks>
-            <FooterLinks></FooterLinks>
+            <StyledLinkFooter to ='/'><FooterLinks>Tienda</FooterLinks></StyledLinkFooter>
+            <StyledLinkFooter to ='/support'><FooterLinks>Soporte</FooterLinks></StyledLinkFooter>
+            <StyledLinkFooter to='/logIn'><FooterLinks>LogIn</FooterLinks></StyledLinkFooter>
           </FooterThings>
           <FooterThings>
             <FooterLinks></FooterLinks>
