@@ -3,7 +3,7 @@ import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
-import { FooterArea } from './styledC/Footer';
+import { FooterArea, FooterLinks, FooterThings } from './styledC/Footer';
 
 
 function App() {
@@ -33,7 +33,16 @@ function App() {
         </div>       
 
         <FooterArea>
-
+          <FooterThings>
+            <FooterLinks></FooterLinks>
+            <FooterLinks></FooterLinks>
+            <FooterLinks></FooterLinks>
+          </FooterThings>
+          <FooterThings>
+            <FooterLinks></FooterLinks>
+            <FooterLinks></FooterLinks>
+            <FooterLinks></FooterLinks>
+          </FooterThings>
         </FooterArea>
       </div>
 
