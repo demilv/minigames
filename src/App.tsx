@@ -3,6 +3,7 @@ import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
+import { FooterArea } from './styledC/Footer';
 
 
 function App() {
