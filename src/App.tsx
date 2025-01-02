@@ -3,7 +3,7 @@ import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
-import { FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
+import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
 
 
 function App() {
@@ -32,21 +32,26 @@ function App() {
           </Routes>          
         </div>       
 
-        <FooterArea>
-          <FooterThings>
-            <StyledLinkFooter to ='/'><FooterLinks>Tienda</FooterLinks></StyledLinkFooter>
-            <StyledLinkFooter to ='/support'><FooterLinks>Soporte</FooterLinks></StyledLinkFooter>
-            <StyledLinkFooter to='/logIn'><FooterLinks>LogIn</FooterLinks></StyledLinkFooter>
-          </FooterThings>
-          <FooterThings>
-            <FooterLinks></FooterLinks>
-            <FooterLinks></FooterLinks>
-            <FooterLinks></FooterLinks>
-          </FooterThings>
-        </FooterArea>
-      </div>
-
-      
+        <Footer>
+          <FooterArea>
+            <FooterThings>
+              <FooterLinks title>Pagina</FooterLinks>
+              <StyledLinkFooter to ='/'><FooterLinks>Tienda</FooterLinks></StyledLinkFooter>
+              <StyledLinkFooter to ='/support'><FooterLinks>Soporte</FooterLinks></StyledLinkFooter>
+              <StyledLinkFooter to='/logIn'><FooterLinks>LogIn</FooterLinks></StyledLinkFooter>
+            </FooterThings>
+            <FooterThings>
+              <FooterLinks title>Elementos legales</FooterLinks>
+              <StyledLinkFooter to ='/'><FooterLinks>Copyright</FooterLinks></StyledLinkFooter>
+              <StyledLinkFooter to ='/support'><FooterLinks>Settings</FooterLinks></StyledLinkFooter>
+              <StyledLinkFooter to='/logIn'><FooterLinks>Contact</FooterLinks></StyledLinkFooter>
+            </FooterThings>
+          </FooterArea>
+          <FooterArea part>
+            <FooterLinks title>gonzalo.cano.rodriguez93@gmail.com</FooterLinks>
+          </FooterArea>
+        </Footer>
+      </div>      
     </Router>
   )
 }
