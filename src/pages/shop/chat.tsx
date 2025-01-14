@@ -5,7 +5,7 @@ interface trial {
   }
   
 
-const Trial1: React.FC<trial> = ({closeChat}) => {
+const ChatBubble: React.FC<trial> = ({closeChat}) => {
     return(
         <Chat>
             <ChatEscritura></ChatEscritura>
@@ -13,4 +13,4 @@ const Trial1: React.FC<trial> = ({closeChat}) => {
     )
 }
 
-export default Trial1;
+export default ChatBubble;

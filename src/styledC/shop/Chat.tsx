@@ -16,3 +16,12 @@ export const ChatEscritura = styled.textarea`
     resize: none;
     box-sizing: border-box;
 `;
+
+export const OpenChatButton = styled.img`
+    width:6%;
+    height:11.5%;
+    position:fixed;
+    right:0.3%;
+    bottom:0.5%;
+    z-index:99999
+`

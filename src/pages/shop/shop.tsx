@@ -3,6 +3,8 @@ import { StyledMain } from "../../styledC/shop/Main";
 import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
 import Trial1 from "./trial1";
 import { useState } from "react";
+import { OpenChatButton } from "../../styledC/shop/Chat";
+import ChatBubble from "./chat";
 
 function Shop (){
 
@@ -17,8 +19,9 @@ function Shop (){
     return (
         <>
             {isTrial1Open && <Trial1 closeTrial1={closeTrial1} />}
-            {isChatOpen && <Chat closeChat={closeChat}/>}
-            <StyledMain>        
+            {isChatOpen && <ChatBubble closeChat={closeChat}/>}
+            <StyledMain>
+                <OpenChatButton onClick={openChat} src="bubbleChat.png" />
                 <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
                     <StyledInstructionsDiv>
                         <StyledSITitle>Ranking</StyledSITitle>
