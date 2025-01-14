@@ -5,9 +5,18 @@ export const Pestana = styled.div`
     z-index:9999999;
     width: 100%;
     height:100%;
-    padding: 5em 5em 2em 5em;
+    padding: 2em 5em;
     background-color:black;
     opacity: 70%;
+`
+
+export const Close = styled.img`
+    position: fixed;
+    z-index: 10000000;
+    width: 5%;
+    height:5%;
+    margin-left:85%;
+    margin-top:1em
 `
 
 export const FrameJuego = styled.div`

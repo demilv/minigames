@@ -1,4 +1,4 @@
-import {  FrameJuego, Pestana } from "../../styledC/shop/pestañaTrial";
+import {  Close, FrameJuego, Pestana } from "../../styledC/shop/pestañaTrial";
 
 interface trial {
     closeTrial1: () => void;
@@ -8,6 +8,7 @@ interface trial {
 const Trial1: React.FC<trial> = ({closeTrial1}) => {
     return(
         <Pestana>
+            <Close src="X.png"/>
             <FrameJuego></FrameJuego>
         </Pestana>
     )
