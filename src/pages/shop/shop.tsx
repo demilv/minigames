@@ -6,14 +6,18 @@ import { useState } from "react";
 
 function Shop (){
 
-    const [isTrial1Open, setTrial1Open] = useState(false);
+    const [isChatOpen, setChatOpen] = useState(false);
+    const [isTrial1Open, setTrial1Open] = useState(false);    
 
     const openTrial1 = () => setTrial1Open(true); 
-    const closeTrial1 = () => setTrial1Open(false); 
+    const closeTrial1 = () => setTrial1Open(false);
+    const openChat = () => setChatOpen(true); 
+    const closeChat = () => setChatOpen(false);
 
     return (
         <>
             {isTrial1Open && <Trial1 closeTrial1={closeTrial1} />}
+            {isChatOpen && <Chat closeChat={closeChat}/>}
             <StyledMain>        
                 <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
                     <StyledInstructionsDiv>

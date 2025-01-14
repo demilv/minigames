@@ -8,7 +8,7 @@ interface trial {
 const Trial1: React.FC<trial> = ({closeTrial1}) => {
     return(
         <Pestana>
-            <Close src="X.png"/>
+            <Close onClick={closeTrial1} src="X.png"/>
             <FrameJuego></FrameJuego>
         </Pestana>
     )

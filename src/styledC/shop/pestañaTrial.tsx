@@ -7,7 +7,7 @@ export const Pestana = styled.div`
     height:100%;
     padding: 2em 5em;
     background-color:black;
-    opacity: 70%;
+    opacity: 80%;
 `
 
 export const Close = styled.img`
@@ -16,7 +16,8 @@ export const Close = styled.img`
     width: 5%;
     height:5%;
     margin-left:85%;
-    margin-top:1em
+    margin-top:1em;
+    cursor:pointer
 `
 
 export const FrameJuego = styled.div`
