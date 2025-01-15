@@ -1,4 +1,4 @@
-import { Chat, ChatEscritura, ChatReplies } from "../../styledC/shop/Chat";
+import { Chat, ChatEscritura, ChatReplies, CloseChatButton } from "../../styledC/shop/Chat";
 
 interface trial {
     closeChat: () => void;
@@ -8,6 +8,7 @@ interface trial {
 const ChatBubble: React.FC<trial> = ({closeChat}) => {
     return(
         <Chat>
+            <CloseChatButton onClick={closeChat} src='X.png'/>
             <ChatReplies></ChatReplies>
             <ChatEscritura></ChatEscritura>
         </Chat>

@@ -7,13 +7,13 @@ export const Chat = styled.div`
     margin-top:10vh;
     margin-left:83%;
     z-index:9999999;
-    background-color:black;
+    background-color:pink;
     display:flex;
     flex-direction:column;
 `
 
 export const ChatReplies = styled.div`
-    height:80%
+    height:72%
 `
 
 export const ChatEscritura = styled.textarea`
@@ -33,4 +33,10 @@ export const OpenChatButton = styled.img`
     right:0.3%;
     bottom:0.5%;
     z-index:99999
+`
+
+export const CloseChatButton = styled.img`
+    margin-left:65%;
+    width:40%;
+    height:10%
 `
