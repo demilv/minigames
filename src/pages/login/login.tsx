@@ -1,3 +1,4 @@
+import { MUIButtonSuccess } from "../../styledC/generic/MUIButtons";
 import { StyledTitle } from "../../styledC/Header";
 import { StyledLoginCajas, StyledLoginDiv, StyledLoginFirstHalf, StyledLoginSecondHalf } from "../../styledC/login/login";
 import { Close, Pestana } from "../../styledC/shop/pestañaTrial";
@@ -16,7 +17,9 @@ const Login: React.FC<login> = ({closeLoginForm}) => {
                 <StyledLoginFirstHalf src="juegosLogin.jpg"></StyledLoginFirstHalf>
                 <StyledLoginSecondHalf>
                     <StyledTitle> Logueate a nuestra página</StyledTitle>
-                    <StyledLoginCajas></StyledLoginCajas>
+                    <StyledLoginCajas placeholder="Nombre"></StyledLoginCajas>
+                    <StyledLoginCajas placeholder="Password"></StyledLoginCajas>
+                    <MUIButtonSuccess/>
                 </StyledLoginSecondHalf>
             </StyledLoginDiv>
         </Pestana>

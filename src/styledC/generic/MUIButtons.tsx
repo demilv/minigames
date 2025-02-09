@@ -30,7 +30,11 @@ const MUIButton = styled(Button)({
         backgroundOrigin: 'border-box',
         animation: `${rainbowAnimation} 2s infinite linear`,
     },
+})
+
+const MUIButtonSuccess= styled(Button)({
+    backgroundColor: '#79ff2c',
 
 })
 
-export {MUIButton, MUIButtonGroup};
+export {MUIButton, MUIButtonGroup, MUIButtonSuccess};
