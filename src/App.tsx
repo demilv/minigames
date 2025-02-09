@@ -4,12 +4,19 @@ import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
 import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
+import { useState } from 'react';
 
 
 function App() {
 
+  const [login, setLogin] = useState(false);
+
+  const openLoginForm = () => setLogin(true)
+  const closeLoginForm = () => setLogin(false);
+
   return (
     <Router>
+      {login && <Login closeLoginForm={closeLoginForm}/>}
       <div className="mainContainer">
         <StyledHeaderContainer> 
           <StyledLogo>
@@ -20,7 +27,7 @@ function App() {
           <StyledLogo lado={"derecho"}>
             <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
             <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
-            <Link to='/logIn'><StyledButtonLogo>Log In</StyledButtonLogo></Link>
+            <StyledButtonLogo onClick={openLoginForm()}>Log In</StyledButtonLogo>
           </StyledLogo>
         </StyledHeaderContainer>
 
@@ -28,7 +35,6 @@ function App() {
           <Routes>
             <Route path='/' element={<Shop />}></Route>
             <Route path='/support' element={<Support />}></Route>
-            <Route path='/logIn' element={<Login />}></Route>
           </Routes>          
         </div>       
 
