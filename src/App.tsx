@@ -27,7 +27,7 @@ function App() {
           <StyledLogo lado={"derecho"}>
             <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
             <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
-            <StyledButtonLogo onClick={openLoginForm()}>Log In</StyledButtonLogo>
+            <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>
           </StyledLogo>
         </StyledHeaderContainer>
 

@@ -14,7 +14,7 @@ const Login: React.FC<login> = ({closeLoginForm}) => {
         <Pestana>
             <Close onClick={closeLoginForm} src="X.png"/>            
             <StyledLoginDiv>
-                <StyledLoginFirstHalf src="juegosLogin.jpg"></StyledLoginFirstHalf>
+                <StyledLoginFirstHalf src="juegosLogin.png"></StyledLoginFirstHalf>
                 <StyledLoginSecondHalf>
                     <StyledTitle> Logueate a nuestra página</StyledTitle>
                     <StyledLoginCajas placeholder="Nombre"></StyledLoginCajas>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledLoginDiv = styled.div`
     position:fixed;
+    display:flex;
+    flex-direction:row;
     z-index:10000000;
     width: 80%;
     height:80%;

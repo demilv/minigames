@@ -1,6 +1,6 @@
 import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledSIImg, StyledSITitle, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/shop/Main";
-import { MUIButton, MUIButtonGroup } from "../../styledC/shop/MUIButtons";
+import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 import Trial1 from "./trial1";
 import { useState } from "react";
 import { OpenChatButton } from "../../styledC/shop/Chat";
