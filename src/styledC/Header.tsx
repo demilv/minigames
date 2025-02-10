@@ -21,11 +21,11 @@ export const StyledHeaderContainer= styled.div`
     }
 `
 
-export const StyledTitle = styled.h2`
+export const StyledTitle = styled.h2<{mTop: number}>`
     font-family:"Press Start 2P";
     color: #fbfbfb;
     font-size: 1.3em;
-    margin-top:2.6em
+    margin-top: ${props => props.mTop}em;
 `
 
 export const StyledTitleImg = styled.img<{inverse?: boolean}>`

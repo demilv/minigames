@@ -21,7 +21,7 @@ function App() {
         <StyledHeaderContainer> 
           <StyledLogo>
             <StyledTitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
-            <StyledTitle>Minijuegos TX</StyledTitle>
+            <StyledTitle mTop={2.6}>Minijuegos TX</StyledTitle>
             <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
           </StyledLogo>
           <StyledLogo lado={"derecho"}>

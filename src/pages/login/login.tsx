@@ -16,7 +16,7 @@ const Login: React.FC<login> = ({closeLoginForm}) => {
             <StyledLoginDiv>
                 <StyledLoginFirstHalf src="juegosLogin.png"></StyledLoginFirstHalf>
                 <StyledLoginSecondHalf>
-                    <StyledTitle> Logueate a nuestra página</StyledTitle>
+                    <StyledTitle mTop={5}> Logueate aquí</StyledTitle>
                     <StyledLoginCajas placeholder="Nombre"></StyledLoginCajas>
                     <StyledLoginCajas placeholder="Password"></StyledLoginCajas>
                     <MUIButtonSuccess/>

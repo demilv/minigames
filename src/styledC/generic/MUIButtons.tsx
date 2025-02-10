@@ -34,7 +34,9 @@ const MUIButton = styled(Button)({
 
 const MUIButtonSuccess= styled(Button)({
     backgroundColor: '#79ff2c',
-
+    height:'3em',
+    width: '50%',
+    borderRadius: '30px'        
 })
 
 export {MUIButton, MUIButtonGroup, MUIButtonSuccess};
