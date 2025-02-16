@@ -19,7 +19,7 @@ const Login: React.FC<login> = ({closeLoginForm}) => {
                     <StyledTitle mTop={5}> Logueate aquí</StyledTitle>
                     <StyledLoginCajas placeholder="Nombre"></StyledLoginCajas>
                     <StyledLoginCajas placeholder="Password"></StyledLoginCajas>
-                    <MUIButtonSuccess/>
+                    <MUIButtonSuccess> Access</MUIButtonSuccess>
                 </StyledLoginSecondHalf>
             </StyledLoginDiv>
         </Pestana>
