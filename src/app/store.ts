@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import scoreReducer from '../features/roomOperations/roomSlice';
-import userReducer from '../features/conciergeOperations/conciergeSlice';
-import gameReducer from '../features/bookingsOperations/bookingsSlice'
+import gameReducer from '../features/gameOperations/gameSlice';
 
 export const store = configureStore({
     reducer: {
