@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const gamesThunk = createAsyncThunk('users/usersThunk', async (_, { rejectWithValue }) => {
+export const usersThunk = createAsyncThunk('users/usersThunk', async (_, { rejectWithValue }) => {
     try {
         const MIAPI = import.meta.env.VITE_MIAPI;
 
