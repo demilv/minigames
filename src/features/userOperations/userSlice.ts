@@ -15,7 +15,7 @@ const initialState: interfaceState = {
     error: null,
 }
 
-export const gamesSlice = createSlice({
+export const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
@@ -48,9 +48,9 @@ export const gamesSlice = createSlice({
     }
 });
 
-export const { editUser, deleteUser, createUser } = gamesSlice.actions;
-export const gamesDataSelect = (state: RootState) => state.games.games;
-export const gamesStatusSelect = (state: RootState) => state.games.status;
-export const gamesErrorSelect = (state: RootState) => state.games.error;
+export const { editUser, deleteUser, createUser } = usersSlice.actions;
+export const usersDataSelect = (state: RootState) => state.users.users;
+export const usersStatusSelect = (state: RootState) => state.users.status;
+export const usersErrorSelect = (state: RootState) => state.users.error;
 
-export default gamesSlice.reducer;
+export default usersSlice.reducer;

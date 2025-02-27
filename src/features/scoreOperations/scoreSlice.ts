@@ -19,8 +19,12 @@ export const scoresSlice = createSlice({
     name: 'scores',
     initialState,
     reducers: {
-        addScore: (state, action) => {
+        createScore: (state, action) => {
+            state.scores = [...state.scores, action.payload ]
+        },
 
+        deleteScore: (state, action) => {
+            state.scores = state.scores.filter(score => score._id !== action.payload)
         }
     },
     extraReducers: (builder) => {
@@ -39,7 +43,7 @@ export const scoresSlice = createSlice({
     }
 });
 
-export const {  } = scoresSlice.actions;
+export const { createScore, deleteScore } = scoresSlice.actions;
 export const scoresDataSelect = (state: RootState) => state.scores.scores;
 export const scoresStatusSelect = (state: RootState) => state.scores.status;
 export const scoresErrorSelect = (state: RootState) => state.scores.error;
