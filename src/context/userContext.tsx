@@ -47,17 +47,18 @@ const userReducer = (state: State, action:Action) => {
 }
 
 export const UserContext = createContext<UserContextType | null>(null);
-    export const UserContextProvider: React.FC<UserContextProviderProps> = ({ children }) => {
-        const [state, dispatch] = useReducer(userReducer, {user:{
-        name:null,
-        email: null,
-        pass: null,
-        autenticado: false
-    }});
 
-    return (
-        <UserContext.Provider value={{state , dispatch}}>
-            {children}
-        </UserContext.Provider>
-    )
+export const UserContextProvider: React.FC<UserContextProviderProps> = ({ children }) => {
+      const [state, dispatch] = useReducer(userReducer, {user:{
+      name:null,
+      email: null,
+      pass: null,
+      autenticado: false
+  }});
+
+  return (
+      <UserContext.Provider value={{state , dispatch}}>
+          {children}
+      </UserContext.Provider>
+  )
 }

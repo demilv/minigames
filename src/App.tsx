@@ -7,13 +7,20 @@ import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from 
 import { useContext, useEffect, useState } from 'react';
 import { LoginAPI } from './validators/LoginAPI';
 import { UserContext } from './context/userContext';
+import { User as UserClass } from './features/types/interfaces';
+import { usersDataSelect, usersErrorSelect,  usersStatusSelect} from './features/userOperations/userSlice';
+import {  useDispatch, useSelector } from "react-redux";
 
 
 function App() {
 
   const [login, setLogin] = useState(false);
   const [loginAttempt, setLoginAttempt] = useState(false)
+  const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
 
+  const usersDataSinMapear = useSelector(usersDataSelect)
+  const usersError = useSelector(usersErrorSelect)
+  const usersStatus = useSelector(usersStatusSelect)
   const openLoginForm = () => setLogin(true)
   const closeLoginForm = () => setLogin(false);
   const userContext = useContext(UserContext);
@@ -30,6 +37,12 @@ function App() {
       }
       login();
     }, []);
+
+    useEffect(() => {
+      if(loginAttempt){
+          
+        };
+      }, [loginAttempt]);
 
   return (
     <Router>
