@@ -4,15 +4,33 @@ import Support from './pages/support/support';
 import Login from './pages/login/login';
 import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
 import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { LoginAPI } from './validators/LoginAPI';
+import { UserContext } from './context/userContext';
 
 
 function App() {
 
   const [login, setLogin] = useState(false);
+  const [loginAttempt, setLoginAttempt] = useState(false)
 
   const openLoginForm = () => setLogin(true)
   const closeLoginForm = () => setLogin(false);
+  const userContext = useContext(UserContext);
+
+  useEffect(() => {
+    const login = async () => {
+        await LoginAPI();
+        const storedUser = localStorage.getItem('user');
+        console.log(userContext?.state);
+        if (storedUser && userContext) {
+          userContext.dispatch({ type: 'SET_USERDATA', payload: JSON.parse(storedUser) });
+        }
+        console.log(userContext?.state);
+        setLoginAttempt(true)
+      }
+      login();
+    }, []);
 
   return (
     <Router>
