@@ -22,7 +22,6 @@ function App() {
     const login = async () => {
         await LoginAPI();
         const storedUser = localStorage.getItem('user');
-        console.log(userContext?.state);
         if (storedUser && userContext) {
           userContext.dispatch({ type: 'SET_USERDATA', payload: JSON.parse(storedUser) });
         }
