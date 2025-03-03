@@ -9,6 +9,8 @@ import { LoginAPI } from './validators/LoginAPI';
 import { UserContext } from './context/userContext';
 import { User as UserClass } from './features/types/interfaces';
 import { usersDataSelect, usersErrorSelect,  usersStatusSelect} from './features/userOperations/userSlice';
+import { usersThunk } from './features/userOperations/userThunk';
+import { AppDispatch } from "./app/store";
 import {  useDispatch, useSelector } from "react-redux";
 
 
@@ -18,6 +20,7 @@ function App() {
   const [loginAttempt, setLoginAttempt] = useState(false)
   const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
 
+  const dispatch = useDispatch<AppDispatch>();
   const usersDataSinMapear = useSelector(usersDataSelect)
   const usersError = useSelector(usersErrorSelect)
   const usersStatus = useSelector(usersStatusSelect)
@@ -40,9 +43,30 @@ function App() {
 
     useEffect(() => {
       if(loginAttempt){
-          
+          if (userAccounts.length === 0) {
+            if (usersStatus === "idle") {
+              dispatch(usersThunk());
+            } else if (usersStatus === "fulfilled") {
+              const usersDataMap: UserClass[] = [];
+              usersDataSinMapear.forEach((user) => {
+                const añadirUser: UserClass = {
+                  _id: user._id,
+                  name: user.name,
+                  phone: user.phone,
+                  email: user.email,
+                  pass: user.pass,
+                  owned: user.owned
+                };
+                usersDataMap.push(añadirUser);
+              });
+              setUserAccounts(usersDataMap);
+              console.log(userAccounts)
+            } else if (usersStatus === "rejected") {
+              console.log(usersError);
+            }
+          }
         };
-      }, [loginAttempt]);
+      }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
 
   return (
     <Router>
