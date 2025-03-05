@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
@@ -7,7 +7,7 @@ import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from 
 import { useContext, useEffect, useState } from 'react';
 import { LoginAPI } from './validators/LoginAPI';
 import { UserContext } from './context/userContext';
-import { User as UserClass } from './features/types/interfaces';
+import { User as UserClass, FormData as Form } from './features/types/interfaces';
 import { usersDataSelect, usersErrorSelect,  usersStatusSelect} from './features/userOperations/userSlice';
 import { usersThunk } from './features/userOperations/userThunk';
 import { AppDispatch } from "./app/store";
@@ -16,9 +16,11 @@ import {  useDispatch, useSelector } from "react-redux";
 
 function App() {
 
+  const navigate = useNavigate()
+
   const [login, setLogin] = useState(false);
   const [loginAttempt, setLoginAttempt] = useState(false)
-  const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
+  const [userAccounts, setUserAccounts] = useState<UserClass[]>([]) 
 
   const dispatch = useDispatch<AppDispatch>();
   const usersDataSinMapear = useSelector(usersDataSelect)
@@ -39,7 +41,7 @@ function App() {
         setLoginAttempt(true)
       }
       login();
-    }, []);
+    }, [userContext]);
 
     useEffect(() => {
       if(loginAttempt){
@@ -68,9 +70,49 @@ function App() {
         };
       }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
 
+      const loginUser = async (formData: Form) => {
+        console.log("comenzando login")
+        const auth = `${import.meta.env.VITE_MIAPI}/auth`;
+        const token = localStorage.getItem('authorization');
+        const response = await fetch(auth, {
+          method: 'POST',
+          headers: {
+            'authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            pass: formData.pass,
+          }),
+        });
+    
+        if (!response.ok) {
+          console.log('Error en las credenciales');
+          return;
+        }
+        const data = await response.json();
+    
+        const existsUser = userAccounts.find((user) => user.name === formData.name);
+    
+        if (data.success && existsUser) {
+          const { email, pass, name } = existsUser;
+          if (userContext) {
+            userContext.dispatch({ type: 'SET_USERDATA', payload: { email, pass, name } });
+            localStorage.setItem('user', JSON.stringify({ email, pass, name }));
+            localStorage.setItem("isLogged", "true");
+            navigate('/home');
+          }
+        }else {
+          if (userContext) {
+            userContext.dispatch({ type: 'LOGOUT' });
+          }
+        }
+      };
+
   return (
     <Router>
-      {login && <Login closeLoginForm={closeLoginForm}/>}
+      {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser}/>}
       <div className="mainContainer">
         <StyledHeaderContainer> 
           <StyledLogo>

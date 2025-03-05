@@ -21,3 +21,8 @@ export interface Score {
     userId: string,
     gameId: string
 }
+
+export interface FormData {
+    name: string,
+    pass: string
+}

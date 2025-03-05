@@ -2,13 +2,15 @@ import { MUIButtonSuccess } from "../../styledC/generic/MUIButtons";
 import { StyledTitle } from "../../styledC/Header";
 import { StyledLoginCajas, StyledLoginDiv, StyledLoginFirstHalf, StyledLoginSecondHalf } from "../../styledC/login/login";
 import { Close, Pestana } from "../../styledC/shop/pestañaTrial";
+import { FormData as Form } from "../../features/types/interfaces";
 
 
 interface login {
     closeLoginForm: () => void;
+    loginUser: (formData: Form) => Promise<void>
 }
 
-const Login: React.FC<login> = ({closeLoginForm}) => {
+const Login: React.FC<login> = ({closeLoginForm, loginUser}) => {
 
     return (
         <Pestana>
