@@ -110,9 +110,21 @@ function App() {
         }
       };
 
+      const logout = () =>{
+        userContext?.dispatch({type:"LOGOUT"})
+      }
+
+      const renderAuthSection = () => {
+        if (!userContext) {
+          return login ? <Login closeLoginForm={closeLoginForm} loginUser={loginUser}/> : null;
+        } else {
+          return <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
+        }
+      };
+
   return (
     <Router>
-      {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser}/>}
+      {renderAuthSection()}
       <div className="mainContainer">
         <StyledHeaderContainer> 
           <StyledLogo>
