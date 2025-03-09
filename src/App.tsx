@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
@@ -70,6 +70,7 @@ function App() {
         };
       }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
 
+
       const loginUser = async (formData: Form) => {
         console.log("comenzando login")
         const auth = `${import.meta.env.VITE_MIAPI}/auth`;
@@ -122,8 +123,8 @@ function App() {
         }
       };
 
-  return (
-    <Router>
+  return (    
+    <Routes>
       {renderAuthSection()}
       <div className="mainContainer">
         <StyledHeaderContainer> 
@@ -140,10 +141,8 @@ function App() {
         </StyledHeaderContainer>
 
         <div className="body">
-          <Routes>
-            <Route path='/' element={<Shop />}></Route>
-            <Route path='/support' element={<Support />}></Route>
-          </Routes>          
+          <Route path='/' element={<Shop />}></Route>
+          <Route path='/support' element={<Support />}></Route>
         </div>       
 
         <Footer>
@@ -166,7 +165,7 @@ function App() {
           </FooterArea>
         </Footer>
       </div>      
-    </Router>
+    </Routes>    
   )
 }
 
