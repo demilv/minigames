@@ -1,4 +1,4 @@
-import { BrowserRouter as Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
@@ -70,6 +70,12 @@ function App() {
         };
       }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
 
+      useEffect(() => {
+        if (login) {
+          console.log(login)
+        }
+      }, [login])
+
 
       const loginUser = async (formData: Form) => {
         console.log("comenzando login")
@@ -116,16 +122,15 @@ function App() {
       }
 
       const renderAuthSection = () => {
-        if (!userContext) {
-          return login ? <Login closeLoginForm={closeLoginForm} loginUser={loginUser}/> : null;
+        if (!userContext?.state.user.autenticado) {
+          return <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>;
         } else {
           return <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
         }
       };
 
   return (    
-    <Routes>
-      {renderAuthSection()}
+    <>
       <div className="mainContainer">
         <StyledHeaderContainer> 
           <StyledLogo>
@@ -136,15 +141,19 @@ function App() {
           <StyledLogo lado={"derecho"}>
             <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
             <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
-            <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>
+            {renderAuthSection()}            
           </StyledLogo>
         </StyledHeaderContainer>
 
-        <div className="body">
-          <Route path='/' element={<Shop />}></Route>
-          <Route path='/support' element={<Support />}></Route>
-        </div>       
+        {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser} />}
 
+        <div className="body">
+          <Routes>
+            <Route path='/' element={<Shop />}></Route>
+            <Route path='/support' element={<Support />}></Route>
+          </Routes>
+        </div>    
+          
         <Footer>
           <FooterArea>
             <FooterThings>
@@ -165,7 +174,7 @@ function App() {
           </FooterArea>
         </Footer>
       </div>      
-    </Routes>    
+    </>    
   )
 }
 
