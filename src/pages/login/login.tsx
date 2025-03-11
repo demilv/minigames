@@ -43,8 +43,8 @@ const Login: React.FC<login> = ({closeLoginForm, loginUser}) => {
                 <StyledLoginSecondHalf>
                     <StyledTitle mTop={5}> Logueate aquí</StyledTitle>
                     <StyledLoginCajas type="name" id="name" placeholder="Nombre" onChange={changeData}></StyledLoginCajas>
-                    <StyledLoginCajas type="pass" id="pass" placeholder="Password" onChange={changeData}></StyledLoginCajas>
-                    <MUIButtonSuccess> Access</MUIButtonSuccess>
+                    <StyledLoginCajas type="password" id="pass" placeholder="Password" onChange={changeData}></StyledLoginCajas>
+                    <MUIButtonSuccess type="submit"> Access</MUIButtonSuccess>
                 </StyledLoginSecondHalf>
             </StyledLoginDiv>
         </StyledForm>

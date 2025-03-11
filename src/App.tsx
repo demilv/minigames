@@ -62,7 +62,7 @@ function App() {
                 usersDataMap.push(añadirUser);
               });
               setUserAccounts(usersDataMap);
-              console.log(userAccounts)
+              console.log(usersDataMap)
             } else if (usersStatus === "rejected") {
               console.log(usersError);
             }
@@ -76,11 +76,23 @@ function App() {
         }
       }, [login])
 
+      useEffect(() => {
+        if (loginAttempt) {
+          dispatch(usersThunk());
+        }
+      }, [loginAttempt, dispatch]);
+
+      useEffect(() => {
+        console.log("Usuarios actualizados:", userAccounts);
+      }, [userAccounts]);
+      
+
 
       const loginUser = async (formData: Form) => {
         console.log("comenzando login")
         const auth = `${import.meta.env.VITE_MIAPI}/auth`;
         const token = localStorage.getItem('authorization');
+        console.log(token)
         const response = await fetch(auth, {
           method: 'POST',
           headers: {
