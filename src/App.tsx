@@ -20,7 +20,8 @@ function App() {
 
   const [login, setLogin] = useState(false);
   const [loginAttempt, setLoginAttempt] = useState(false)
-  const [userAccounts, setUserAccounts] = useState<UserClass[]>([]) 
+  const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
+  const [initialLoad, setInitialLoad] = useState(true) 
 
   const dispatch = useDispatch<AppDispatch>();
   const usersDataSinMapear = useSelector(usersDataSelect)
@@ -39,9 +40,15 @@ function App() {
         }
         console.log(userContext?.state);
         setLoginAttempt(true)
+        setInitialLoad(false)
       }
-      login();
-    }, [userContext]);
+
+      if (!loginAttempt) {
+        login();
+      }
+    }, [loginAttempt, userContext]);
+
+
 
     useEffect(() => {
       if(loginAttempt){
@@ -93,6 +100,7 @@ function App() {
         const auth = `${import.meta.env.VITE_MIAPI}/auth`;
         const token = localStorage.getItem('authorization');
         console.log(token)
+        console.log(formData)
         const response = await fetch(auth, {
           method: 'POST',
           headers: {
@@ -120,17 +128,19 @@ function App() {
             userContext.dispatch({ type: 'SET_USERDATA', payload: { email, pass, name } });
             localStorage.setItem('user', JSON.stringify({ email, pass, name }));
             localStorage.setItem("isLogged", "true");
-            navigate('/home');
+            navigate('/');
           }
         }else {
           if (userContext) {
             userContext.dispatch({ type: 'LOGOUT' });
+            localStorage.setItem("isLogged", "false");
           }
         }
       };
 
       const logout = () =>{
         userContext?.dispatch({type:"LOGOUT"})
+        localStorage.setItem("isLogged", "false");
       }
 
       const renderAuthSection = () => {
@@ -141,53 +151,58 @@ function App() {
         }
       };
 
-  return (    
-    <>
-      <div className="mainContainer">
-        <StyledHeaderContainer> 
-          <StyledLogo>
-            <StyledTitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
-            <StyledTitle mTop={2.6}>Minijuegos TX</StyledTitle>
-            <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
-          </StyledLogo>
-          <StyledLogo lado={"derecho"}>
-            <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
-            <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
-            {renderAuthSection()}            
-          </StyledLogo>
-        </StyledHeaderContainer>
+  if(initialLoad === true){
+    return ( <div></div> )
 
-        {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser} />}
+  }else{ 
+    return (    
+      <>
+        <div className="mainContainer">
+          <StyledHeaderContainer> 
+            <StyledLogo>
+              <StyledTitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
+              <StyledTitle mTop={2.6}>Minijuegos TX</StyledTitle>
+              <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
+            </StyledLogo>
+            <StyledLogo lado={"derecho"}>
+              <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
+              <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
+              {renderAuthSection()}            
+            </StyledLogo>
+          </StyledHeaderContainer>
 
-        <div className="body">
-          <Routes>
-            <Route path='/' element={<Shop />}></Route>
-            <Route path='/support' element={<Support />}></Route>
-          </Routes>
-        </div>    
-          
-        <Footer>
-          <FooterArea>
-            <FooterThings>
-              <FooterLinks title>Pagina</FooterLinks>
-              <StyledLinkFooter to ='/'><FooterLinks>Tienda</FooterLinks></StyledLinkFooter>
-              <StyledLinkFooter to ='/support'><FooterLinks>Soporte</FooterLinks></StyledLinkFooter>
-              <StyledLinkFooter to='/logIn'><FooterLinks>LogIn</FooterLinks></StyledLinkFooter>
-            </FooterThings>
-            <FooterThings>
-              <FooterLinks title>Elementos legales</FooterLinks>
-              <StyledLinkFooter to ='/'><FooterLinks>Copyright</FooterLinks></StyledLinkFooter>
-              <StyledLinkFooter to ='/support'><FooterLinks>Settings</FooterLinks></StyledLinkFooter>
-              <StyledLinkFooter to='/logIn'><FooterLinks>Contact</FooterLinks></StyledLinkFooter>
-            </FooterThings>
-          </FooterArea>
-          <FooterArea part>
-            <FooterLinks title>gonzalo.cano.rodriguez93@gmail.com</FooterLinks>
-          </FooterArea>
-        </Footer>
-      </div>      
-    </>    
-  )
+          {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser} />}
+
+          <div className="body">
+            <Routes>
+              <Route path='/' element={<Shop />}></Route>
+              <Route path='/support' element={<Support />}></Route>
+            </Routes>
+          </div>    
+            
+          <Footer>
+            <FooterArea>
+              <FooterThings>
+                <FooterLinks title>Pagina</FooterLinks>
+                <StyledLinkFooter to ='/'><FooterLinks>Tienda</FooterLinks></StyledLinkFooter>
+                <StyledLinkFooter to ='/support'><FooterLinks>Soporte</FooterLinks></StyledLinkFooter>
+                <StyledLinkFooter to='/logIn'><FooterLinks>LogIn</FooterLinks></StyledLinkFooter>
+              </FooterThings>
+              <FooterThings>
+                <FooterLinks title>Elementos legales</FooterLinks>
+                <StyledLinkFooter to ='/'><FooterLinks>Copyright</FooterLinks></StyledLinkFooter>
+                <StyledLinkFooter to ='/support'><FooterLinks>Settings</FooterLinks></StyledLinkFooter>
+                <StyledLinkFooter to='/logIn'><FooterLinks>Contact</FooterLinks></StyledLinkFooter>
+              </FooterThings>
+            </FooterArea>
+            <FooterArea part>
+              <FooterLinks title>gonzalo.cano.rodriguez93@gmail.com</FooterLinks>
+            </FooterArea>
+          </Footer>
+        </div>      
+      </>    
+    )
+  }
 }
 
 export default App;
