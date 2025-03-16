@@ -33,6 +33,7 @@ const Login: React.FC<login> = ({closeLoginForm, loginUser}) => {
         ev.preventDefault();
         console.log("probando datos")
         loginUser(formData, state ? state.prevRoute : null)
+        closeLoginForm()
     }
 
     return (        

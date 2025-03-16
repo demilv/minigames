@@ -140,7 +140,10 @@ function App() {
 
       const logout = () =>{
         userContext?.dispatch({type:"LOGOUT"})
+        localStorage.removeItem("user");
+        localStorage.removeItem("authorization");
         localStorage.setItem("isLogged", "false");
+        navigate("/")
       }
 
       const renderAuthSection = () => {
