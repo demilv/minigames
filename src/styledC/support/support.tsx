@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
 export const StyledSupportDiv = styled.div`
+
     width:100%;
-    padding: 5% 20%
-    background-color:rgb(49, 46, 46)
+    height: 100%;
+    padding: 15% 10%;
+    background-color:rgb(49, 46, 46);
 `
 
 export const StyledSupportP = styled.p`
-    font-size: 0.9em
+    padding-left:5%;
+    font-size: 0.9em;
+    font-family:"Press Start 2P";
+    color:rgb(255, 243, 243);
+    margin-bottom:1.5em;
+`
+
+export const StyledSupportTitle = styled.h2`
+    font-size: 1.9em;
+    font-family:"Press Start 2P";
+    color:rgb(106, 0, 0);
+    margin-bottom:2em;
 `
