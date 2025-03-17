@@ -150,7 +150,9 @@ function App() {
         if (!userContext?.state.user.autenticado) {
           return <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>;
         } else {
-          return <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
+          return <>
+            <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
+          </>
         }
       };
 
