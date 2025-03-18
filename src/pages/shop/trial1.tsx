@@ -1,4 +1,5 @@
-import {  Close, FrameJuego, Pestana } from "../../styledC/shop/pestañaTrial";
+import {  Close, FrameJuego } from "../../styledC/shop/pestañaTrial";
+import { BlackScreen } from "../../styledC/generic/Screens";
 
 interface trial {
     closeTrial1: () => void;
@@ -7,10 +8,10 @@ interface trial {
 
 const Trial1: React.FC<trial> = ({closeTrial1}) => {
     return(
-        <Pestana>
+        <BlackScreen>
             <Close onClick={closeTrial1} src="X.png"/>
             <FrameJuego></FrameJuego>
-        </Pestana>
+        </BlackScreen>
     )
 }
 
