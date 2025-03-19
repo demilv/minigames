@@ -6,7 +6,7 @@ interface trial {
     closeWindow: () => void;
   } 
 
-const versionWarning: React.FC<trial> = ({closeWindow}) => {
+const VersionWarning: React.FC<trial> = ({closeWindow}) => {
   return(
         <BlackScreen>
             <CloseChatButton onClick={closeWindow} src='X.png'/>            
@@ -27,4 +27,4 @@ const versionWarning: React.FC<trial> = ({closeWindow}) => {
     )
 }
 
-export default versionWarning;
+export default VersionWarning;

@@ -6,5 +6,8 @@ export const BlueVersion = styled.div`
     padding: 2em;
     background-color:rgb(128, 242, 213);
     color:rgb(255, 98, 0);
-    font-family: "VT323"
+    font-family: "VT323";
+    margin-bottom: 1em;
+    position:fixed;
+    z-index:99999999999;
 `

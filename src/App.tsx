@@ -12,13 +12,14 @@ import { usersDataSelect, usersErrorSelect,  usersStatusSelect} from './features
 import { usersThunk } from './features/userOperations/userThunk';
 import { AppDispatch } from "./app/store";
 import {  useDispatch, useSelector } from "react-redux";
-
+import VersionWarning from './pages/version/versionWarning';
 
 function App() {
 
   const navigate = useNavigate()
 
   const [login, setLogin] = useState(false);
+  const [warning, setWarning] = useState(true);
   const [loginAttempt, setLoginAttempt] = useState(false)
   const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
   const [initialLoad, setInitialLoad] = useState(true) 
@@ -156,12 +157,16 @@ function App() {
         }
       };
 
+      const closeWindow = () => {
+        setWarning(false)
+      }
+
   if(initialLoad === true){
     return ( <div></div> )
-
   }else{ 
     return (    
-      <>
+      <>        
+        {warning && <VersionWarning closeWindow={closeWindow} />}
         <div className="mainContainer">
           <StyledHeaderContainer> 
             <StyledLogo>
