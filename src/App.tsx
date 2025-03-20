@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
@@ -194,6 +194,7 @@ function App() {
                   <Profile />
                 </PrivateRoutes>
               } />*/}
+               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>    
             
