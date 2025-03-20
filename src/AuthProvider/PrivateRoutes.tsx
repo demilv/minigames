@@ -7,5 +7,5 @@ interface PrivateRoutesProps {
 
 export const PrivateRoutes: React.FC<PrivateRoutesProps> = ({children}) => {
     const isLogged = localStorage.getItem("isLogged") === "true";
-    return isLogged ? children : <Navigate to="/login"/>
+    return isLogged ? children : <Navigate to="/"/>
 }

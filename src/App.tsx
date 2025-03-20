@@ -13,6 +13,7 @@ import { usersThunk } from './features/userOperations/userThunk';
 import { AppDispatch } from "./app/store";
 import {  useDispatch, useSelector } from "react-redux";
 import VersionWarning from './pages/version/versionWarning';
+import { PrivateRoutes } from './AuthProvider/PrivateRoutes';
 
 function App() {
 
@@ -152,6 +153,7 @@ function App() {
           return <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>;
         } else {
           return <>
+            <Link to='/profile'><StyledButtonLogo>Profile</StyledButtonLogo></Link>
             <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
           </>
         }
@@ -187,6 +189,11 @@ function App() {
             <Routes>
               <Route path='/' element={<Shop />}></Route>
               <Route path='/support' element={<Support />}></Route>
+              {/*<Route path='/profile' element={
+                <PrivateRoutes>
+                  <Profile />
+                </PrivateRoutes>
+              } />*/}
             </Routes>
           </div>    
             
