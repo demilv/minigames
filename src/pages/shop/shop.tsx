@@ -1,5 +1,5 @@
 import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledSIImg, StyledSITitle, StyledTitleProduct } from "../../styledC/shop/productFrame";
-import { StyledMain } from "../../styledC/shop/Main";
+import { StyledMain } from "../../styledC/generic/Screens";
 import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 import Trial1 from "./trial1";
 import { useState } from "react";

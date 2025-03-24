@@ -9,3 +9,12 @@ export const BlackScreen = styled.div`
     background-color:black;
     opacity: 80%;
 `
+
+export const StyledMain = styled.div`
+
+    width:100%;
+    align-items:center;
+    padding: 6%;
+    background-color: #1c1c1c 
+
+`
