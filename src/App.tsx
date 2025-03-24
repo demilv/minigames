@@ -78,24 +78,10 @@ function App() {
           }
         };
       }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
-
-      useEffect(() => {
-        if (login) {
-          console.log(login)
-        }
-      }, [login])
-
-      useEffect(() => {
-        if (loginAttempt) {
-          dispatch(usersThunk());
-        }
-      }, [loginAttempt, dispatch]);
-
-      useEffect(() => {
-        console.log("Usuarios actualizados:", userAccounts);
-      }, [userAccounts]);
-      
-
+    
+      const userProfile = () => {        
+        navigate(`/profile/${userContext?.state.user.name}`)
+      };
 
       const loginUser = async (formData: Form) => {
         console.log("comenzando login")
@@ -153,7 +139,7 @@ function App() {
           return <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>;
         } else {
           return <>
-            <Link to='/profile'><StyledButtonLogo>Profile</StyledButtonLogo></Link>
+            <StyledButtonLogo onClick={userProfile}>Profile</StyledButtonLogo>
             <StyledButtonLogo onClick={logout}>Logout</StyledButtonLogo>;
           </>
         }
