@@ -2,7 +2,7 @@ import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
-import { StyledHeaderContainer, StyledTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
+import { StyledHeaderContainer, StyledHeaderTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
 import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
 import { useContext, useEffect, useState } from 'react';
 import { LoginAPI } from './validators/LoginAPI';
@@ -107,7 +107,7 @@ function App() {
             console.log(gamesError);
           }
         }
-      }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus])
+      }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus, games])
     
       const userProfile = () => {        
         navigate(`/profile/${userContext?.state.user.name}`)
@@ -189,7 +189,7 @@ function App() {
           <StyledHeaderContainer> 
             <StyledLogo>
               <StyledTitleImg src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
-              <StyledTitle mTop={2.6}>Minijuegos TX</StyledTitle>
+              <StyledHeaderTitle mTop={2.6}>Minijuegos TX</StyledHeaderTitle>
               <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
             </StyledLogo>
             <StyledLogo lado={"derecho"}>

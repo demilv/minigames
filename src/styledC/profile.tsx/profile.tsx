@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const styledTitleProfile = styled.h2`
+export const styledTitleProfile = styled.h3`
     color: #e1d254;
     font-size: 2em;
     font-family:"Press Start 2P";

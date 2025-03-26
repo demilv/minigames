@@ -21,7 +21,7 @@ export const StyledHeaderContainer= styled.div`
     }
 `
 
-export const StyledTitle = styled.h2<{mTop: number}>`
+export const StyledHeaderTitle = styled.h2<{mTop: number}>`
     font-family:"Press Start 2P";
     color: #fbfbfb;
     font-size: 1.3em;

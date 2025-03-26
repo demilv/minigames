@@ -1,13 +1,14 @@
-import { StyledSupportDiv, StyledSupportP, StyledSupportTitle } from "../../styledC/support/support";
+import { StyledSupportDiv, StyledSupportP} from "../../styledC/support/support";
+import { StyledTitle } from "../../styledC/generic/Text";
 
 function Support () {
 
     return (
         <>
             <StyledSupportDiv>    
-                <StyledSupportTitle>
+                <StyledTitle>
                     Información de contacto a Soporte    
-                </StyledSupportTitle>            
+                </StyledTitle>            
                 <StyledSupportP>
                     Necesitas ayuda? Estamos aquí para asistirte.
                 </StyledSupportP>
