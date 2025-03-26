@@ -4,6 +4,7 @@ import { usersDataSelect } from "../../features/userOperations/userSlice";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 import { StyledTitle } from "../../styledC/generic/Text";
+import { StyledTitleProfile, StyledLineProfile, StyledNothingProfile } from "../../styledC/profile.tsx/profile";
 
 const Profile  = () => {
     const { userId } = useParams<{userId: string}>();
@@ -21,9 +22,28 @@ const Profile  = () => {
         owned: userProfile?.owned || [],
     };
 
+    const renderGames = () => {
+        if (userShow.owned.length === 0) return <StyledNothingProfile>Nada que ver aquí</StyledNothingProfile>;
+    
+        const gamesOwned = gamesData.filter(game => userShow.owned.includes(game._id));
+        const gameGroups = [];
+    
+        for (let i = 0; i < gamesOwned.length; i += 3) {
+            gameGroups.push(gamesOwned.slice(i, i + 3));
+        }
+    
+        return gameGroups.map((group, index) => (
+            
+        ));
+    };
+
     return (
         <StyledMain>
             <StyledTitle>¡Saludos usuario {userShow.name}</StyledTitle>
+            <StyledTitleProfile>Titulos que posees</StyledTitleProfile>
+            <StyledLineProfile />
+            {renderGames()}
+
         </StyledMain>
     )
 
