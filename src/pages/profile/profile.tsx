@@ -4,7 +4,7 @@ import { usersDataSelect } from "../../features/userOperations/userSlice";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 import { StyledTitle } from "../../styledC/generic/Text";
-import { StyledTitleProfile, StyledLineProfile, StyledNothingProfile } from "../../styledC/profile.tsx/profile";
+import { StyledTitleProfile, StyledLineProfile, StyledNothingProfile, StyledGameRowProfile, StyledGameSpaceProfile, StyledGameImgProfile, StyledGameTitleProfile } from "../../styledC/profile.tsx/profile";
 
 const Profile  = () => {
     const { userId } = useParams<{userId: string}>();
@@ -33,7 +33,14 @@ const Profile  = () => {
         }
     
         return gameGroups.map((group, index) => (
-            
+            <StyledGameRowProfile key={index}>
+                {group.map((game) => (
+                    <StyledGameSpaceProfile key={game._id}>
+                        <StyledGameImgProfile src={`Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg`} alt={game.name} />
+                        <StyledGameTitleProfile>{game.name}</StyledGameTitleProfile>
+                    </StyledGameSpaceProfile>
+                ))}
+            </StyledGameRowProfile>
         ));
     };
 
