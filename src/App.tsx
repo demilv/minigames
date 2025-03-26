@@ -7,9 +7,11 @@ import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from 
 import { useContext, useEffect, useState } from 'react';
 import { LoginAPI } from './validators/LoginAPI';
 import { UserContext } from './context/userContext';
-import { User as UserClass, FormData as Form } from './features/types/interfaces';
+import { User as UserClass, Game as GameClass, FormData as Form } from './features/types/interfaces';
 import { usersDataSelect, usersErrorSelect,  usersStatusSelect} from './features/userOperations/userSlice';
+import { gamesDataSelect, gamesErrorSelect, gamesStatusSelect } from './features/gameOperations/gameSlice';
 import { usersThunk } from './features/userOperations/userThunk';
+import { gamesThunk } from './features/gameOperations/gameThunk';
 import { AppDispatch } from "./app/store";
 import {  useDispatch, useSelector } from "react-redux";
 import VersionWarning from './pages/version/versionWarning';
@@ -23,9 +25,13 @@ function App() {
   const [warning, setWarning] = useState(true);
   const [loginAttempt, setLoginAttempt] = useState(false)
   const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
+  const [games, setGames] = useState<GameClass[]>([])
   const [initialLoad, setInitialLoad] = useState(true) 
 
   const dispatch = useDispatch<AppDispatch>();
+  const gamesDataSinMapear = useSelector(gamesDataSelect)
+  const gamesError = useSelector(gamesErrorSelect)
+  const gamesStatus = useSelector(gamesStatusSelect)
   const usersDataSinMapear = useSelector(usersDataSelect)
   const usersError = useSelector(usersErrorSelect)
   const usersStatus = useSelector(usersStatusSelect)
@@ -78,6 +84,30 @@ function App() {
           }
         };
       }, [loginAttempt, userAccounts, usersStatus, usersDataSinMapear, usersError, dispatch]);
+
+      useEffect(() => {
+        if (games.length === 0){
+          if(gamesStatus === "idle"){
+            dispatch(gamesThunk())
+          }else if(gamesStatus === "fulfilled"){
+            const gamesDataMap: GameClass[] = [];
+            gamesDataSinMapear.forEach((game) => {
+              const añadirGame: GameClass = {
+                _id: game._id,
+                name: game.name,
+                bImage: game.bImage,
+                price: game.price,
+                status: game.status
+              };
+              gamesDataMap.push(añadirGame)
+            })
+            setGames(gamesDataMap);
+            console.log(gamesDataMap)
+          } else if (gamesStatus === "rejected") {
+            console.log(gamesError);
+          }
+        }
+      }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus])
     
       const userProfile = () => {        
         navigate(`/profile/${userContext?.state.user.name}`)
