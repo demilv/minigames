@@ -16,6 +16,7 @@ import { AppDispatch } from "./app/store";
 import {  useDispatch, useSelector } from "react-redux";
 import VersionWarning from './pages/version/versionWarning';
 import { PrivateRoutes } from './AuthProvider/PrivateRoutes';
+import Profile from './pages/profile/profile';
 
 function App() {
 
@@ -205,11 +206,11 @@ function App() {
             <Routes>
               <Route path='/' element={<Shop />}></Route>
               <Route path='/support' element={<Support />}></Route>
-              {/*<Route path='/profile' element={
+              {<Route path='/profile/:userId' element={
                 <PrivateRoutes>
                   <Profile />
                 </PrivateRoutes>
-              } />*/}
+              } />}
                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>    

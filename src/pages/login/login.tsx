@@ -1,6 +1,5 @@
 import { MUIButtonSuccess } from "../../styledC/generic/MUIButtons";
-import { StyledTitle } from "../../styledC/Header";
-import { StyledLoginCajas, StyledLoginDiv, StyledLoginFirstHalf, StyledLoginSecondHalf, StyledForm } from "../../styledC/login/login";
+import { StyledLoginCajas, StyledLoginDiv, StyledLoginFirstHalf, StyledLoginSecondHalf, StyledLoginTitle ,StyledForm } from "../../styledC/login/login";
 import { Close } from "../../styledC/shop/pestañaTrial";
 import { FormData as Form } from "../../features/types/interfaces";
 import { useLocation } from "react-router-dom";
@@ -42,7 +41,7 @@ const Login: React.FC<login> = ({closeLoginForm, loginUser}) => {
             <StyledLoginDiv>
                 <StyledLoginFirstHalf src="juegosLogin.png"></StyledLoginFirstHalf>
                 <StyledLoginSecondHalf>
-                    <StyledTitle mTop={5}> Logueate aquí</StyledTitle>
+                    <StyledLoginTitle> Logueate aquí</StyledLoginTitle>
                     <StyledLoginCajas type="name" id="name" name="name" placeholder="Nombre" onChange={changeData}></StyledLoginCajas>
                     <StyledLoginCajas type="password" id="pass" name="pass" placeholder="Password" onChange={changeData}></StyledLoginCajas>
                     <MUIButtonSuccess type="submit"> Access</MUIButtonSuccess>

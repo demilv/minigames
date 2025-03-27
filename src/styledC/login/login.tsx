@@ -20,6 +20,14 @@ export const StyledLoginDiv = styled.div`
     margin:3% 0 0 5%;
 `
 
+export const StyledLoginTitle = styled.h2`
+    font-family:"Press Start 2P";
+    color: #fbfbfb;
+    font-size: 1.5em;
+    margin-top: 5em;
+`
+
+
 export const StyledLoginFirstHalf = styled.img`
     width:80%;
 `

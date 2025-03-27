@@ -11,7 +11,9 @@ const Profile  = () => {
     const usersData = useSelector(usersDataSelect);
     const gamesData = useSelector(gamesDataSelect)
 
-    const userProfile = usersData.find(user => user._id === userId);
+    const userProfile = usersData.find(user => user.name === userId);
+    console.log(userId)
+    console.log(userProfile)
 
 
     const userShow = {
@@ -33,10 +35,10 @@ const Profile  = () => {
         }
     
         return gameGroups.map((group, index) => (
-            <StyledGameRowProfile key={index}>
+            <StyledGameRowProfile mHeight={18} key={index}>
                 {group.map((game) => (
                     <StyledGameSpaceProfile key={game._id}>
-                        <StyledGameImgProfile src={`Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg`} alt={game.name} />
+                        <StyledGameImgProfile src={`../Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg`} alt={game.name} />
                         <StyledGameTitleProfile>{game.name}</StyledGameTitleProfile>
                     </StyledGameSpaceProfile>
                 ))}
@@ -45,12 +47,13 @@ const Profile  = () => {
     };
 
     return (
-        <StyledMain>
-            <StyledTitle>¡Saludos usuario {userShow.name}</StyledTitle>
-            <StyledTitleProfile>Titulos que posees</StyledTitleProfile>
-            <StyledLineProfile />
+        <StyledMain mTop={14}>
+            <StyledTitle>Greetings {userShow.name}!</StyledTitle>
+            <StyledGameRowProfile>
+                <StyledTitleProfile>Owned</StyledTitleProfile>
+                <StyledLineProfile />
+            </StyledGameRowProfile>
             {renderGames()}
-
         </StyledMain>
     )
 
