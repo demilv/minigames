@@ -166,6 +166,10 @@ function App() {
         navigate("/")
       }
 
+      const newUser = () => {
+        navigate("/newUser")
+      }
+
       const renderAuthSection = () => {
         if (!userContext?.state.user.autenticado) {
           return <StyledButtonLogo onClick={openLoginForm}>Log In</StyledButtonLogo>;

@@ -27,6 +27,17 @@ export const StyledLoginTitle = styled.h2`
     margin-top: 5em;
 `
 
+export const StyledLoginNewUser = styled.button`
+    all: unset; 
+    cursor: pointer;
+    font-family:"Press Start 2P";
+    color:rgb(226, 21, 21);
+    font-size: 0.75em;
+    background-color: none;
+    border:none;
+    box-shadow:none;
+`
+
 
 export const StyledLoginFirstHalf = styled.img`
     width:80%;
