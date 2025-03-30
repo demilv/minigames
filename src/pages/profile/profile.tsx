@@ -4,7 +4,7 @@ import { usersDataSelect } from "../../features/userOperations/userSlice";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 import { StyledTitle } from "../../styledC/generic/Text";
-import { StyledTitleProfile, StyledLineProfile, StyledNothingProfile, StyledGameRowProfile, StyledGameSpaceProfile, StyledGameImgProfile, StyledGameTitleProfile } from "../../styledC/profile.tsx/profile";
+import { StyledTitleProfile, StyledLineProfile, StyledNothingProfile, StyledGameRowProfile, StyledGameSpaceProfile, StyledGameImgProfile, StyledGameTitleProfile, StyledGameTitleRowProfile, GamesContainer } from "../../styledC/profile.tsx/profile";
 
 const Profile  = () => {
     const { userId } = useParams<{userId: string}>();
@@ -48,12 +48,13 @@ const Profile  = () => {
 
     return (
         <StyledMain mTop={14}>
-            <StyledTitle>Greetings {userShow.name}!</StyledTitle>
-            <StyledGameRowProfile>
-                <StyledTitleProfile>Owned</StyledTitleProfile>
-                <StyledLineProfile />
-            </StyledGameRowProfile>
-            {renderGames()}
+            <StyledTitle>Greetings {userShow.name}!</StyledTitle>     
+            <GamesContainer>                
+                <StyledTitleProfile>Your Owned Games</StyledTitleProfile>
+                <StyledGameTitleRowProfile>
+                    {renderGames()} 
+                </StyledGameTitleRowProfile>                          
+            </GamesContainer>
         </StyledMain>
     )
 
