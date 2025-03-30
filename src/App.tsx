@@ -17,6 +17,7 @@ import {  useDispatch, useSelector } from "react-redux";
 import VersionWarning from './pages/version/versionWarning';
 import { PrivateRoutes } from './AuthProvider/PrivateRoutes';
 import Profile from './pages/profile/profile';
+import NewUser from './pages/newUser/newUser';
 
 function App() {
 
@@ -200,12 +201,13 @@ function App() {
             </StyledLogo>
           </StyledHeaderContainer>
 
-          {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser} />}
+          {login && <Login closeLoginForm={closeLoginForm} loginUser={loginUser} newUser={newUser} />}
 
           <div className="body">
             <Routes>
               <Route path='/' element={<Shop />}></Route>
-              <Route path='/support' element={<Support />}></Route>
+              <Route path='/support' element={<Support/>}></Route>
+              <Route path='/newUser' element={<NewUser />}></Route>
               {<Route path='/profile/:userId' element={
                 <PrivateRoutes>
                   <Profile />
