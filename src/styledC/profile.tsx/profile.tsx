@@ -51,10 +51,14 @@ export const StyledGameSpaceProfile = styled.div`
     width:25%;    
     align-items: center;
     text-align: center; 
+    background-color: rgb(3, 2, 2);   
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    min-height: 35em
 `
 
 export const StyledGameImgProfile = styled.img`
-    max-width:90%;
+    max-width:100%;
     margin-bottom:1em;
     border-radius: 1em;
 `
