@@ -53,10 +53,3 @@ export const StyledLoginSecondHalf = styled.div`
     align-items:center;
 `
 
-export const StyledLoginCajas = styled.input`
-    border-radius:30px;
-    border: 1px solid;
-    height: 3.5em;
-    text-align:center;
-    width:50%;    
-`
