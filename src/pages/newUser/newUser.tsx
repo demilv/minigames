@@ -2,7 +2,7 @@ import { useState } from "react"
 import { StyledCajas } from "../../styledC/generic/Boxes"
 import { StyledMain } from "../../styledC/generic/Screens"
 import { StyledTitle } from "../../styledC/generic/Text"
-import { WhiteForm } from "../../styledC/newUser/newUser"
+import { WhiteForm, ErrorText } from "../../styledC/newUser/newUser"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2";
 
@@ -113,9 +113,13 @@ const NewUser = () => {
             <WhiteForm onSubmit={submitForm}>
                 <StyledTitle>Create your account</StyledTitle>
                 <StyledCajas type="name" id="name" name="name" placeholder="Introduce Tu Nombre" onChange={changeData}></StyledCajas>
+                {!rules.rule1 && <ErrorText>El nombre debe tener entre 3 y 15 carácteres</ErrorText>}
                 <StyledCajas type="password" id="pass" name="pass" placeholder="Introduce Tu Password" onChange={changeData}></StyledCajas>
+                {!rules.rule1 && <ErrorText>La password debe tener entre 3 y 15 carácteres</ErrorText>}
                 <StyledCajas type="email" id="email" name="email" placeholder="Introduce tu email" onChange={changeData}></StyledCajas>
+                {!rules.rule1 && <ErrorText>El email debe tener una terminación correcta</ErrorText>}
                 <StyledCajas type="phone" id="phone" name="phone" placeholder="Introduce tu teléfono" onChange={changeData}></StyledCajas>
+                {!rules.rule1 && <ErrorText>El teléfono debe tener 9 caracteres</ErrorText>}
             </WhiteForm>
         </StyledMain>
     )
