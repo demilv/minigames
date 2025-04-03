@@ -5,6 +5,7 @@ import { StyledTitle } from "../../styledC/generic/Text"
 import { WhiteForm, ErrorText } from "../../styledC/newUser/newUser"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2";
+import { MUIButtonSuccess } from "../../styledC/generic/MUIButtons"
 
 interface newUserData {
     name: string,
@@ -84,12 +85,12 @@ const NewUser = () => {
         switch (name)
         {
           case 'name':
-            if (name.length <3 || name.length > 15)
+            if (value.length <3 || value.length > 15)
               setRules(prevRules => ({ ...prevRules, rule1: false }));
             else setRules(prevRules => ({ ...prevRules, rule1: true }));
             return;
           case 'pass':
-            if (name.length <3 || name.length > 15)
+            if (value.length <3 || value.length > 15)
               setRules(prevRules => ({ ...prevRules, rule2: false }));
             else setRules(prevRules => ({ ...prevRules, rule2: true }));
             return;
@@ -101,7 +102,7 @@ const NewUser = () => {
             }
             return;
           case 'phone':
-          if (name.length !== 9)
+          if (value.length !== 9)
             setRules(prevRules => ({ ...prevRules, rule4: false }));
           else setRules(prevRules => ({ ...prevRules, rule4: true }));
           return;
@@ -113,13 +114,14 @@ const NewUser = () => {
             <WhiteForm onSubmit={submitForm}>
                 <StyledTitle>Create your account</StyledTitle>
                 <StyledCajas type="name" id="name" name="name" placeholder="Introduce Tu Nombre" onChange={changeData}></StyledCajas>
-                {!rules.rule1 && <ErrorText>El nombre debe tener entre 3 y 15 carácteres</ErrorText>}
-                <StyledCajas type="password" id="pass" name="pass" placeholder="Introduce Tu Password" onChange={changeData}></StyledCajas>
-                {!rules.rule1 && <ErrorText>La password debe tener entre 3 y 15 carácteres</ErrorText>}
-                <StyledCajas type="email" id="email" name="email" placeholder="Introduce tu email" onChange={changeData}></StyledCajas>
-                {!rules.rule1 && <ErrorText>El email debe tener una terminación correcta</ErrorText>}
-                <StyledCajas type="phone" id="phone" name="phone" placeholder="Introduce tu teléfono" onChange={changeData}></StyledCajas>
-                {!rules.rule1 && <ErrorText>El teléfono debe tener 9 caracteres</ErrorText>}
+                {rules.rule1 === false && <ErrorText mTop={1.5}>El nombre debe tener entre 3 y 15 carácteres</ErrorText>}
+                <StyledCajas mTop={2} type="password" id="pass" name="pass" placeholder="Introduce Tu Password" onChange={changeData}></StyledCajas>
+                {rules.rule2 === false && <ErrorText mTop={1.5}>La password debe tener entre 3 y 15 carácteres</ErrorText>}
+                <StyledCajas mTop={2} type="email" id="email" name="email" placeholder="Introduce tu email" onChange={changeData}></StyledCajas>
+                {rules.rule3 === false && <ErrorText mTop={1.5}>El email debe tener una terminación correcta</ErrorText>}
+                <StyledCajas mTop={2} mBottom={1.5} type="phone" id="phone" name="phone" placeholder="Introduce tu teléfono" onChange={changeData}></StyledCajas>
+                {rules.rule4 === false && <ErrorText mBottom={3.5}>El teléfono debe tener 9 caracteres</ErrorText>}
+                <MUIButtonSuccess type="submit"> Crear</MUIButtonSuccess>
             </WhiteForm>
         </StyledMain>
     )
