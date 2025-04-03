@@ -43,7 +43,7 @@ const NewUser = () => {
       }
 
         console.log("probando datos")
-        const newUserPath = `${import.meta.env.VITE_MIAPI}/newUser`;
+        const newUserPath = `${import.meta.env.VITE_MIAPI}/users/newUser`;
         const token = localStorage.getItem('authorization');
 
         const response = await fetch(newUserPath, {
@@ -101,11 +101,14 @@ const NewUser = () => {
               setRules(prevRules => ({ ...prevRules, rule3: true }));
             }
             return;
-          case 'phone':
-          if (value.length !== 9)
-            setRules(prevRules => ({ ...prevRules, rule4: false }));
-          else setRules(prevRules => ({ ...prevRules, rule4: true }));
-          return;
+          case 'phone':{
+            if (!/^\d{9}$/.test(value)) {
+                setRules(prevRules => ({ ...prevRules, rule4: false }));
+            } else {
+                setRules(prevRules => ({ ...prevRules, rule4: true }));
+            }
+            return;
+          }
         }
     }
 
@@ -120,7 +123,7 @@ const NewUser = () => {
                 <StyledCajas mTop={2} type="email" id="email" name="email" placeholder="Introduce tu email" onChange={changeData}></StyledCajas>
                 {rules.rule3 === false && <ErrorText mTop={1.5}>El email debe tener una terminación correcta</ErrorText>}
                 <StyledCajas mTop={2} mBottom={1.5} type="phone" id="phone" name="phone" placeholder="Introduce tu teléfono" onChange={changeData}></StyledCajas>
-                {rules.rule4 === false && <ErrorText mBottom={3.5}>El teléfono debe tener 9 caracteres</ErrorText>}
+                {rules.rule4 === false && <ErrorText mBottom={3.5}>El teléfono debe tener 9 números</ErrorText>}
                 <MUIButtonSuccess type="submit"> Crear</MUIButtonSuccess>
             </WhiteForm>
         </StyledMain>

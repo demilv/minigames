@@ -25,7 +25,7 @@ const Profile  = () => {
     };
 
     const renderGames = () => {
-        if (userShow.owned.length === 0) return <StyledNothingProfile>Nada que ver aquí</StyledNothingProfile>;
+        if (userShow.owned.length === 0) return <StyledNothingProfile>Nada que ver aquí...</StyledNothingProfile>;
     
         const gamesOwned = gamesData.filter(game => userShow.owned.includes(game._id));
         const gameGroups = [];

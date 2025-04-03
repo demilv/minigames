@@ -7,14 +7,15 @@ export const StyledTitleProfile = styled.h3`
     margin-bottom: 0.3em;
     position:absolute;
     left:5%;
-    top:-2%
+    top:-0.5em
 `
 
 export const StyledNothingProfile = styled.h5`
     color: #e1d254;
-    font-size: 1em;
+    font-size: 1.2em;
     font-family:"Press Start 2P";
-    margin-bottom: 0.3em    
+    margin: 0 auto;
+    margin-bottom: 5em    
 `
 
 export const StyledLineProfile = styled.div`
