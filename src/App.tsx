@@ -29,6 +29,9 @@ function App() {
   const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
   const [games, setGames] = useState<GameClass[]>([])
   const [initialLoad, setInitialLoad] = useState(true) 
+  const [cart, setCart] = useState([])
+
+
 
   const dispatch = useDispatch<AppDispatch>();
   const gamesDataSinMapear = useSelector(gamesDataSelect)
@@ -40,6 +43,14 @@ function App() {
   const openLoginForm = () => setLogin(true)
   const closeLoginForm = () => setLogin(false);
   const userContext = useContext(UserContext);
+
+  useEffect(() => {    
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart)
+    {
+      setCart(JSON.parse(storedCart))
+    }
+  }, [])
 
   useEffect(() => {
     const login = async () => {
