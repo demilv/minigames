@@ -2,7 +2,7 @@ import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
 import Shop from './pages/shop/shop';
 import Support from './pages/support/support';
 import Login from './pages/login/login';
-import { StyledHeaderContainer, StyledHeaderTitle, StyledLogo, StyledTitleImg, StyledButtonLogo } from './styledC/Header';
+import { StyledHeaderContainer, StyledHeaderTitle, StyledLogo, StyledTitleImg, StyledButtonLogo, StyledCartFrame, StyledDot } from './styledC/Header';
 import { Footer, FooterArea, FooterLinks, FooterThings, StyledLinkFooter } from './styledC/Footer';
 import { useContext, useEffect, useState } from 'react';
 import { LoginAPI } from './validators/LoginAPI';
@@ -18,6 +18,9 @@ import VersionWarning from './pages/version/versionWarning';
 import { PrivateRoutes } from './AuthProvider/PrivateRoutes';
 import Profile from './pages/profile/profile';
 import NewUser from './pages/newUser/newUser';
+import { BsCart } from 'react-icons/bs';
+
+
 
 function App() {
 
@@ -209,6 +212,10 @@ function App() {
               <StyledHeaderTitle mTop={2.6}>Minijuegos TX</StyledHeaderTitle>
               <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
             </StyledLogo>
+            <StyledCartFrame>
+              <BsCart size={24}/>
+              <StyledDot></StyledDot>
+            </StyledCartFrame>            
             <StyledLogo lado={"derecho"}>
               <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
               <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>

@@ -56,3 +56,15 @@ export const StyledButtonLogo = styled.button`
         background: #757575;
     }
 `
+
+export const StyledCartFrame = styled.div`
+    display: relative
+`
+
+export const StyledDot = styled.div`
+    width:3px;
+    border: 3px solid red;
+    position: absolute;
+    top: 30%;
+    left: 46%
+`
