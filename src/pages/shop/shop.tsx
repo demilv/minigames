@@ -16,30 +16,31 @@ function Shop (){
 
 
 
-    return gameData.map((games, index) => (
+    return (
         <>
             <StyledMain>
             {isChatOpen && <ChatBubble closeChat={closeChat}/>}
                 <OpenChatButton onClick={openChat} src="bubbleChat.png" />  
-                {games.map((game) => (              
-                <StyledProductFrame back={"Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg"}>
-                    <StyledInstructionsDiv>
-                        <StyledSITitle>Reviews</StyledSITitle>
-                        <StyledSIImg src="scroll.png"/>
-                    </StyledInstructionsDiv>
-                    <StyledLadoInfo>
-                        <StyledTitleProduct>Ultimate TTT</StyledTitleProduct>
-                        <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
-                        <MUIButtonGroup>
-                            <MUIButton> Add to cart!</MUIButton>
-                        </MUIButtonGroup>
-                    </StyledLadoInfo>
-                    <StyledInstructionsDiv inverse={true}>
-                        <StyledSITitle>Instructions</StyledSITitle>
-                        <StyledSIImg src="scroll.png"/>
-                    </StyledInstructionsDiv>
-                </StyledProductFrame>
-                ))}
+                {gameData.map((game) => 
+                    game.status === true ? (
+                    <StyledProductFrame key={game._id} back={game.bImage}>
+                        <StyledInstructionsDiv>
+                            <StyledSITitle>Reviews</StyledSITitle>
+                            <StyledSIImg src="scroll.png"/>
+                        </StyledInstructionsDiv>
+                        <StyledLadoInfo>
+                            <StyledTitleProduct>Ultimate TTT {game.price}</StyledTitleProduct>
+                            <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
+                            <MUIButtonGroup>
+                                <MUIButton> Add to cart!</MUIButton>
+                            </MUIButtonGroup>
+                        </StyledLadoInfo>
+                        <StyledInstructionsDiv inverse={true}>
+                            <StyledSITitle>Instructions</StyledSITitle>
+                            <StyledSIImg src="scroll.png"/>
+                        </StyledInstructionsDiv>
+                    </StyledProductFrame> ) : null
+                )}
                 <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
                     <article className="producto__ladoInfo">
                         <h1></h1>
