@@ -40,31 +40,10 @@ function Shop (){
                             <StyledSIImg src="scroll.png"/>
                         </StyledInstructionsDiv>
                     </StyledProductFrame> ) : null
-                )}
-                <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"} inverse={true}>
-                    <article className="producto__ladoInfo">
-                        <h1></h1>
-                        <h5></h5>
-                        <div className="producto__ladoInfo__acciones">
-                            <button> Buy!</button>
-                            <button> Try it!</button>
-                        </div>
-                    </article>
-                </StyledProductFrame>
-                <StyledProductFrame back={"HD-wallpaper-orange-light-on-black-background-orange-line-background-luminous-background-orange-light-line-background.jpg"}>
-                    <article className="producto__ladoInfo">
-                        <h1></h1>
-                        <h5></h5>
-                        <div className="producto__ladoInfo__acciones">
-                            <button> Buy!</button>
-                            <button> Try it!</button>
-                        </div>
-                    </article>
-                    <img />
-                </StyledProductFrame>
+                )}            
             </StyledMain>
         </>
-    ))
+    )
 
 }
 
