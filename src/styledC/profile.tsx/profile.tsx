@@ -64,12 +64,6 @@ export const StyledGameImgProfile = styled.img`
     border-radius: 1em;
 `
 
-export const StyledGameTitleProfile = styled.h5`
-    font-size: 1.2em;
-    font-family:"Press Start 2P";
-    color:rgb(220, 220, 220);    
-`
-
 export const GamesContainer = styled.div`
     position:relative;
     margin-top:2em    

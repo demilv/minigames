@@ -6,3 +6,9 @@ export const StyledTitle = styled.h2`
     color:rgb(106, 0, 0);
     margin-bottom:2em;
 `
+
+export const StyledGenericTitleProfile = styled.h5`
+    font-size: 1.2em;
+    font-family:"Press Start 2P";
+    color:rgb(220, 220, 220);    
+`
