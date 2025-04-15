@@ -33,7 +33,7 @@ function App() {
   const [games, setGames] = useState<GameClass[]>([])
   const [initialLoad, setInitialLoad] = useState(true) 
   const [cart, setCart] = useState([])
-
+  const [cartAdd, setCartAdd] = useState(0)
 
 
   const dispatch = useDispatch<AppDispatch>();
@@ -54,6 +54,10 @@ function App() {
       setCart(JSON.parse(storedCart))
     }
   }, [])
+
+  useEffect(() => {
+    
+  }, [cartAdd])
 
   useEffect(() => {
     const login = async () => {

@@ -8,7 +8,9 @@ export const StyledCartFrame = styled.div`
     flex-direction:row;
     justify-content:space-between;    
     align-items:center;    
-    gap:2em
+    gap:2em;
+    background-color: #7f8c8d;
+    box-shadow: 0 2.5rem 3.75rem -1.25rem rgba(192, 192, 192, 0.6)
 `
 
 export const StyledCartLeftFrame = styled.div`
