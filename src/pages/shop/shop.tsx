@@ -7,7 +7,11 @@ import ChatBubble from "./chatBubble";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 
-function Shop (){
+interface shop {
+    addItemCart: () => void
+}
+
+const Shop: React.FC<shop> = ({addItemCart}) => {
 
     const [isChatOpen, setChatOpen] = useState(false);
     const openChat = () => setChatOpen(true); 

@@ -56,7 +56,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    
+
   }, [cartAdd])
 
   useEffect(() => {
@@ -128,6 +128,11 @@ function App() {
           }
         }
       }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus, games])
+
+      const addItemCart = () => {
+        const currentCart = cartAdd
+        setCartAdd(currentCart)
+      }
     
       const userProfile = () => {        
         navigate(`/profile/${userContext?.state.user.name}`)
@@ -231,7 +236,7 @@ function App() {
 
           <div className="body">
             <Routes>
-              <Route path='/' element={<Shop />}></Route>
+              <Route path='/' element={<Shop addItemCart={addItemCart}/>}></Route>
               <Route path='/support' element={<Support/>}></Route>
               <Route path='/newUser' element={<NewUser />}></Route>
               {<Route path='/profile/:userId' element={
