@@ -10,14 +10,6 @@ export const StyledTitleProfile = styled.h3`
     top:-0.5em
 `
 
-export const StyledNothingProfile = styled.h5`
-    color: #e1d254;
-    font-size: 1.2em;
-    font-family:"Press Start 2P";
-    margin: 0 auto;
-    margin-bottom: 5em    
-`
-
 export const StyledLineProfile = styled.div`
     display:flex;
     flex-direction:row;

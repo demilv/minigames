@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { usersDataSelect } from "../../features/userOperations/userSlice";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
-import { StyledGenericTitleProfile, StyledTitle } from "../../styledC/generic/Text";
-import { StyledTitleProfile, StyledNothingProfile, StyledGameRowProfile, StyledGameSpaceProfile, StyledGameImgProfile, StyledGameTitleRowProfile, GamesContainer } from "../../styledC/profile.tsx/profile";
+import { StyledGenericTitleProfile, StyledNothing, StyledTitle } from "../../styledC/generic/Text";
+import { StyledTitleProfile, StyledGameRowProfile, StyledGameSpaceProfile, StyledGameImgProfile, StyledGameTitleRowProfile, GamesContainer } from "../../styledC/profile.tsx/profile";
 
 const Profile  = () => {
     const { userId } = useParams<{userId: string}>();
@@ -25,7 +25,7 @@ const Profile  = () => {
     };
 
     const renderGames = () => {
-        if (userShow.owned.length === 0) return <StyledNothingProfile>Nada que ver aquí...</StyledNothingProfile>;
+        if (userShow.owned.length === 0) return <StyledNothing>Nada que ver aquí...</StyledNothing>;
     
         const gamesOwned = gamesData.filter(game => userShow.owned.includes(game._id));
         const gameGroups = [];

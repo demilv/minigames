@@ -239,7 +239,7 @@ function App() {
               <Route path='/' element={<Shop addItemCart={addItemCart}/>}></Route>
               <Route path='/support' element={<Support/>}></Route>
               <Route path='/newUser' element={<NewUser />}></Route>
-              <Route path='/cart' element={<Cart />}></Route>
+              <Route path='/cart' element={<Cart cart={cart}/>}></Route>
               {<Route path='/profile/:userId' element={
                 <PrivateRoutes>
                   <Profile />

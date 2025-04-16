@@ -58,7 +58,7 @@ export const StyledTitleProduct = styled.h1`
     font-size:4em;
     color: #fbdfcd;
     font-family: "VT323";
-    margin-bottom:3em;
+    margin-bottom:2em;
 `
 
 export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`

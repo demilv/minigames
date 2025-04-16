@@ -33,7 +33,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
                             <StyledSIImg src="scroll.png"/>
                         </StyledInstructionsDiv>
                         <StyledLadoInfo>
-                            <StyledTitleProduct>Ultimate TTT {game.price}</StyledTitleProduct>
+                            <StyledTitleProduct>{game.name + ' ' + game.price + '$'}</StyledTitleProduct>
                             <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
                             <MUIButtonGroup>
                                 <MUIButton onClick={() => addItemCart(game._id)}> Add to cart!</MUIButton>
