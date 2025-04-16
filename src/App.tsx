@@ -32,8 +32,7 @@ function App() {
   const [userAccounts, setUserAccounts] = useState<UserClass[]>([])
   const [games, setGames] = useState<GameClass[]>([])
   const [initialLoad, setInitialLoad] = useState(true) 
-  const [cart, setCart] = useState([])
-  const [cartAdd, setCartAdd] = useState(0)
+  const [cart, setCart] = useState<string[]>([])
 
 
   const dispatch = useDispatch<AppDispatch>();
@@ -54,11 +53,7 @@ function App() {
       setCart(JSON.parse(storedCart))
     }
   }, [])
-
-  useEffect(() => {
-
-  }, [cartAdd])
-
+  
   useEffect(() => {
     const login = async () => {
         await LoginAPI();
@@ -129,9 +124,8 @@ function App() {
         }
       }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus, games])
 
-      const addItemCart = () => {
-        const currentCart = cartAdd
-        setCartAdd(currentCart)
+      const addItemCart = (game_id: string) => {
+        setCart((prevCart) => [...prevCart, game_id])
       }
     
       const userProfile = () => {        
