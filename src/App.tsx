@@ -19,6 +19,7 @@ import { PrivateRoutes } from './AuthProvider/PrivateRoutes';
 import Profile from './pages/profile/profile';
 import NewUser from './pages/newUser/newUser';
 import { BsCart } from 'react-icons/bs';
+import Cart from './pages/cart/cart';
 
 
 
@@ -125,7 +126,12 @@ function App() {
       }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus, games])
 
       const addItemCart = (game_id: string) => {
-        setCart((prevCart) => [...prevCart, game_id])
+        setCart((prevCart) => {
+          if(prevCart.includes(game_id)){
+            return prevCart;
+          }
+          return [...prevCart, game_id]        
+        })
       }
     
       const userProfile = () => {        
@@ -215,10 +221,10 @@ function App() {
               <StyledHeaderTitle mTop={2.6}>Minijuegos TX</StyledHeaderTitle>
               <StyledTitleImg inverse={true} src="pngtree-retro-game-controller-sticker-is-shown-on-a-grey-background-vector-png-image_6903415.png"></StyledTitleImg>
             </StyledLogo>
-            <StyledCartFrame>
+            <Link to ='/cart'><StyledCartFrame>
               <BsCart size={24}/>
-              <StyledDot></StyledDot>
-            </StyledCartFrame>            
+              {cart.length > 0 && <StyledDot></StyledDot>}
+            </StyledCartFrame></Link>            
             <StyledLogo lado={"derecho"}>
               <Link to='/'><StyledButtonLogo>Tienda</StyledButtonLogo></Link>
               <Link to ='/support'><StyledButtonLogo>Soporte</StyledButtonLogo></Link>
@@ -233,6 +239,7 @@ function App() {
               <Route path='/' element={<Shop addItemCart={addItemCart}/>}></Route>
               <Route path='/support' element={<Support/>}></Route>
               <Route path='/newUser' element={<NewUser />}></Route>
+              <Route path='/cart' element={<Cart />}></Route>
               {<Route path='/profile/:userId' element={
                 <PrivateRoutes>
                   <Profile />

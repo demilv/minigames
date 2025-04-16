@@ -8,7 +8,7 @@ import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 
 interface shop {
-    addItemCart: (game._id: string) => void
+    addItemCart: (gameId: string) => void
 }
 
 const Shop: React.FC<shop> = ({addItemCart}) => {
@@ -36,7 +36,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
                             <StyledTitleProduct>Ultimate TTT {game.price}</StyledTitleProduct>
                             <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
                             <MUIButtonGroup>
-                                <MUIButton onClick={addItemCart}> Add to cart!</MUIButton>
+                                <MUIButton onClick={() => addItemCart(game._id)}> Add to cart!</MUIButton>
                             </MUIButtonGroup>
                         </StyledLadoInfo>
                         <StyledInstructionsDiv inverse={true}>
