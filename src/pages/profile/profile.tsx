@@ -38,7 +38,7 @@ const Profile  = () => {
             <StyledGameRowProfile mHeight={18} key={index}>
                 {group.map((game) => (
                     <StyledGameSpaceProfile key={game._id}>
-                        <StyledGameImgProfile src={`../Leonardo_Phoenix_tic_tac_toe_with_3_rows_and_3_columns_there_s_2.jpg`} alt={game.name} />
+                        <StyledGameImgProfile src={game.bImage} alt={game.name} />
                         <StyledGenericTitleProfile>{game.name}</StyledGenericTitleProfile>
                     </StyledGameSpaceProfile>
                 ))}

@@ -1,5 +1,9 @@
-import { StyledCartFramePage, StyledCartLeftFramePage } from "../../styledC/cart/cart";
-import { StyledNothing } from "../../styledC/generic/Text"
+import { StyledCartFramePage, StyledCartLeftFrameImgPage, StyledCartSideFramePage } from "../../styledC/cart/cart";
+import { StyledGenericTitleProfile, StyledNothing } from "../../styledC/generic/Text";
+import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
+import { useSelector } from "react-redux";
+import { StyledMain } from "../../styledC/generic/Screens";
+
 
 interface cart {
     cart: string[]
@@ -7,13 +11,31 @@ interface cart {
 
 const Cart: React.FC<cart> = ({cart}) => {
 
+    const gamesData = useSelector(gamesDataSelect);    
+
+    const renderProduct = () => {
+        return gamesData.map((game) => (
+                    <StyledCartFramePage key={game._id}>                        
+                        <StyledCartSideFramePage>
+                            <StyledCartLeftFrameImgPage src={game.bImage} alt={game.name} />
+                            <StyledGenericTitleProfile>{game.name}</StyledGenericTitleProfile>
+                        </StyledCartSideFramePage> 
+                        <StyledCartSideFramePage>
+                            <StyledNothing></StyledNothing>    
+                            <StyledNothing></StyledNothing>    
+                        </StyledCartSideFramePage>                      
+                    </StyledCartFramePage>
+        ));
+    }
+
     return (
-        <StyledCartFramePage>
-            <StyledCartLeftFramePage>
-                {cart.length === 0 && <StyledNothing>Aquí no hay nada</StyledNothing>}
-                {cart.length === 0 && <StyledNothing>Ve a la tienda a pillar algo</StyledNothing>}
-            </StyledCartLeftFramePage>
-        </StyledCartFramePage>
+        <StyledMain>
+            {cart.length > 0 && renderProduct()}                
+            {cart.length === 0 && <StyledCartLeftFramePage>
+                <StyledNothing>Aquí no hay nada</StyledNothing>
+                <StyledNothing>Ve a la tienda a pillar algo</StyledNothing>
+            </StyledCartLeftFramePage>}
+        </StyledMain>
     )
 }
 

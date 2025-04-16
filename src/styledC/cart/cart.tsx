@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const StyledCartFramePage = styled.div`
-    min-height:70em;
-    height: 100%;
+export const StyledCartFramePage = styled.div`    ;
+    height: 10em;
     width:100%;
     padding: 2em 5em;
     display: flex;
@@ -14,7 +13,7 @@ export const StyledCartFramePage = styled.div`
     box-shadow: 0 2.5rem 3.75rem -1.25rem rgba(192, 192, 192, 0.6)
 `
 
-export const StyledCartLeftFramePage = styled.div`
+export const StyledCartSideFramePage = styled.div`
     width: 100%;
     display:flex;
     flex-direction: column;
@@ -26,3 +25,4 @@ export const StyledCartLeftFramePage = styled.div`
 export const StyledCartLeftFrameImgPage = styled.img`
     width: 90%
 `
+
