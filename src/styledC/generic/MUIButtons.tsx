@@ -26,7 +26,6 @@ const MUIButton = styled(Button)({
     fontFamily: "'Press Start 2P'",
     '&:hover': {
         color: '#e1d254',
-        border: '2px solid',
         backgroundOrigin: 'border-box',
         animation: `${rainbowAnimation} 2s infinite linear`,
     },

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCartFramePage = styled.div`    ;
-    height: 10em;
+    height: 20em;
     width:100%;
     padding: 2em 5em;
     display: flex;
@@ -9,20 +9,31 @@ export const StyledCartFramePage = styled.div`    ;
     justify-content:space-between;    
     align-items:center;    
     gap:2em;
-    background-color:rgb(85, 85, 85);
-    box-shadow: 0 2.5rem 3.75rem -1.25rem rgba(192, 192, 192, 0.6)
+    background-color:rgb(55, 52, 52);
+    box-shadow: 0 -0.5rem 3.75rem 0.25rem rgba(192, 192, 192, 0.6);
+    border-radius: 10px;
+    margin-bottom:6em
 `
 
 export const StyledCartSideFramePage = styled.div`
-    width: 100%;
+    max-width:35em;
+    width:100%;
     display:flex;
     flex-direction: column;
-    padding: 5%;
+    padding: 2%;
     align-items: center;
     justify-content: center
 `
 
 export const StyledCartLeftFrameImgPage = styled.img`
-    width: 90%
+    max-width: 40%;
+    min-width:40%;
+    margin-bottom: 2em
+`
+
+export const StyledCartButtonContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+    gap: 2em
 `
 

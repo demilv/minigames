@@ -13,10 +13,11 @@ export const StyledGenericTitleProfile = styled.h5`
     color:rgb(220, 220, 220);    
 `
 
-export const StyledNothing = styled.h5`
+export const StyledNothing = styled.h5<{mTop?: number; mBottom?: number}>`
     color: #e1d254;
     font-size: 1.2em;
     font-family:"Press Start 2P";
     margin: 0 auto;
-    margin-bottom: 5em    
+    margin-top: ${props => props.mTop ? `${props.mTop}` : '0'};
+    margin-bottom: ${props => props.mBottom ? `${props.mBottom}em` : '5em'}    
 `
