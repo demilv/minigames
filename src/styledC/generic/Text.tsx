@@ -18,6 +18,6 @@ export const StyledNothing = styled.h5<{mTop?: number; mBottom?: number}>`
     font-size: 1.2em;
     font-family:"Press Start 2P";
     margin: 0 auto;
-    margin-top: ${props => props.mTop ? `${props.mTop}` : '0'};
+    margin-top: ${props => props.mTop ? `${props.mTop}em` : '0'};
     margin-bottom: ${props => props.mBottom ? `${props.mBottom}em` : '5em'}    
 `

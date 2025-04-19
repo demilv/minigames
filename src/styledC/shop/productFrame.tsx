@@ -55,7 +55,7 @@ export const StyledLadoInfo = styled.div`
 `
 
 export const StyledTitleProduct = styled.h1`
-    font-size:4em;
+    font-size:3.5em;
     color: #fbdfcd;
     font-family: "VT323";
     margin-bottom:2em;

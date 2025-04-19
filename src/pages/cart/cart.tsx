@@ -10,8 +10,12 @@ interface cart {
     cart: string[]
 }
 
-const Cart: React.FC<cart> = ({cart}) => {
+const Cart: React.FC<cart> = ({cart, onRemove}) => {
 
+    /*const eraseGame = (id: string) => {
+        cart
+    }
+*/
     const gamesData = useSelector(gamesDataSelect);   
     const cartGames = gamesData.filter(game => cart.includes(game._id)) 
 
@@ -27,10 +31,10 @@ const Cart: React.FC<cart> = ({cart}) => {
                             <StyledNothing mBottom={2}>¿Quieres este juego?</StyledNothing>    
                             <StyledCartButtonContainer>
                                 <MUIButtonGroup>
-                                    <MUIButton> Comprar!</MUIButton>
+                                    <MUIButton onClick={}> Comprar!</MUIButton>
                                 </MUIButtonGroup>
                                 <MUIButtonGroup>
-                                    <MUIButton> Eliminar!</MUIButton>
+                                    <MUIButton onClick={}> Eliminar!</MUIButton>
                                 </MUIButtonGroup>
                             </StyledCartButtonContainer>
                         </StyledCartSideFramePage>                      
@@ -45,6 +49,11 @@ const Cart: React.FC<cart> = ({cart}) => {
                 <StyledNothing>Aquí no hay nada</StyledNothing>
                 <StyledNothing>Ve a la tienda a pillar algo</StyledNothing>
             </StyledCartSideFramePage>}
+            {cart.length > 0 && 
+            <MUIButtonGroup>
+                <MUIButton> ¿Comprar todo?</MUIButton>
+                <MUIButton> ¿Eliminar carrito?</MUIButton>
+            </MUIButtonGroup>}
         </StyledMain>
     )
 }
