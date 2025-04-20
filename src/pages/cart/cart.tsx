@@ -9,10 +9,11 @@ import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 interface cart {
     cart: string[],
     removeItemCart: (id: string) => void,
-    removeAllItemCart: () => void
+    removeAllItemCart: () => void,
+    addGameToUser: (id: string) => void
 }
 
-const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart}) => {    
+const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart, addGameToUser}) => {    
 
     const gamesData = useSelector(gamesDataSelect);   
     const cartGames = gamesData.filter(game => cart.includes(game._id)) 
@@ -29,7 +30,7 @@ const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart}) => {
                             <StyledNothing mBottom={2}>¿Quieres este juego?</StyledNothing>    
                             <StyledCartButtonContainer>
                                 <MUIButtonGroup>
-                                    <MUIButton > Comprar!</MUIButton>
+                                    <MUIButton onClick={() => addGameToUser(game._id)}> Comprar!</MUIButton>
                                 </MUIButtonGroup>
                                 <MUIButtonGroup>
                                     <MUIButton onClick={() => removeItemCart(game._id)}> Eliminar!</MUIButton>
