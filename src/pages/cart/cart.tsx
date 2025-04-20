@@ -7,15 +7,13 @@ import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 
 
 interface cart {
-    cart: string[]
+    cart: string[],
+    removeItemCart: (id: string) => void,
+    removeAllItemCart: () => void
 }
 
-const Cart: React.FC<cart> = ({cart, onRemove}) => {
+const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart}) => {    
 
-    /*const eraseGame = (id: string) => {
-        cart
-    }
-*/
     const gamesData = useSelector(gamesDataSelect);   
     const cartGames = gamesData.filter(game => cart.includes(game._id)) 
 
@@ -31,10 +29,10 @@ const Cart: React.FC<cart> = ({cart, onRemove}) => {
                             <StyledNothing mBottom={2}>¿Quieres este juego?</StyledNothing>    
                             <StyledCartButtonContainer>
                                 <MUIButtonGroup>
-                                    <MUIButton onClick={}> Comprar!</MUIButton>
+                                    <MUIButton > Comprar!</MUIButton>
                                 </MUIButtonGroup>
                                 <MUIButtonGroup>
-                                    <MUIButton onClick={}> Eliminar!</MUIButton>
+                                    <MUIButton onClick={() => removeItemCart(game._id)}> Eliminar!</MUIButton>
                                 </MUIButtonGroup>
                             </StyledCartButtonContainer>
                         </StyledCartSideFramePage>                      
@@ -52,7 +50,7 @@ const Cart: React.FC<cart> = ({cart, onRemove}) => {
             {cart.length > 0 && 
             <MUIButtonGroup>
                 <MUIButton> ¿Comprar todo?</MUIButton>
-                <MUIButton> ¿Eliminar carrito?</MUIButton>
+                <MUIButton onClick= {removeAllItemCart}> ¿Eliminar carrito?</MUIButton>
             </MUIButtonGroup>}
         </StyledMain>
     )

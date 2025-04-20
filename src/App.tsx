@@ -134,8 +134,12 @@ function App() {
         })
       }
 
-      const remveItemCart = (id: string) => {
+      const removeItemCart = (id: string) => {
         setCart(prevCart => prevCart.filter(gameId => gameId !== id));
+      }
+
+      const removeAllItemCart = () => {
+        setCart([])
       }
     
       const userProfile = () => {        
@@ -243,7 +247,7 @@ function App() {
               <Route path='/' element={<Shop addItemCart={addItemCart}/>}></Route>
               <Route path='/support' element={<Support/>}></Route>
               <Route path='/newUser' element={<NewUser />}></Route>
-              <Route path='/cart' element={<Cart removeItemCart={remveItemCart} cart={cart}/>}></Route>
+              <Route path='/cart' element={<Cart removeAllItemCart = {removeAllItemCart} removeItemCart={removeItemCart} cart={cart}/>}></Route>
               {<Route path='/profile/:userId' element={
                 <PrivateRoutes>
                   <Profile />
