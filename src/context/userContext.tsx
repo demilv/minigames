@@ -5,6 +5,7 @@ import React from "react";
     name: string | null;
     email: string | null;
     pass: string | null;
+    phone: string | null;
     owned: string[] | null;
     autenticado: boolean;
   }
@@ -17,7 +18,7 @@ import React from "react";
     children: React.ReactNode;
   }
   
-  type Action = | { type: 'SET_USERDATA'; payload: { name: string; email: string; pass: string; owned: string[] } } | { type: 'LOGOUT' };
+  type Action = | { type: 'SET_USERDATA'; payload: { name: string; email: string; pass: string; phone: string; owned: string[] } } | { type: 'LOGOUT' };
   
   interface UserContextType {
     state: State;
@@ -32,6 +33,7 @@ const userReducer = (state: State, action:Action) => {
                         name:action.payload.name,
                         email: action.payload.email,
                         pass: action.payload.pass,
+                        phone: action.payload.phone,
                         owned: action.payload.owned,
                         autenticado: true
                     }};
@@ -40,6 +42,7 @@ const userReducer = (state: State, action:Action) => {
                 name:null,
                 email: null,
                 pass: null,
+                phone: null,
                 owned:null,
                 autenticado: false
             }};
@@ -56,6 +59,7 @@ export const UserContextProvider: React.FC<UserContextProviderProps> = ({ childr
       name:null,
       email: null,
       pass: null,
+      phone: null,
       owned: null,
       autenticado: false
   }});

@@ -20,6 +20,7 @@ import Profile from './pages/profile/profile';
 import NewUser from './pages/newUser/newUser';
 import { BsCart } from 'react-icons/bs';
 import Cart from './pages/cart/cart';
+import Swal from 'sweetalert2';
 
 
 
@@ -142,14 +143,15 @@ function App() {
         setCart([])
       }
 
-      const addGameToUser = (id:string) => {
+      const addGameToUser = async (id:string[]) => {
         const addGamesToUser = `${import.meta.env.VITE_MIAPI}/users/upUser`;
         const token = localStorage.getItem('authorization');
-        console.log(userContext)
-        /*const userResponse = {...userContext, owned:[]
-        console.log(userResponse)*/
+        const currentUser = userContext?.state.user;
+        const newGameForUser = {
+          ...currentUser, owned:[...(currentUser!.owned ?? []), ...id] 
+        }
 
-        /*const response = await fetch(addGamesToUser, {
+        const response = await fetch(addGamesToUser, {
           method: 'PUT',
           headers: {
             'authorization': `Bearer ${token}`,
@@ -157,12 +159,28 @@ function App() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: formData.name,
-            pass: formData.pass,
-            email: formData.email,
-            phone: formData.phone
+            name: newGameForUser.name,
+            pass: newGameForUser.pass,
+            email: newGameForUser.email,
+            phone: newGameForUser.phone,
+            owned: newGameForUser.owned
           }),
-        });*/
+        });
+
+        if (!response.ok) {
+          console.log('Sucedió un error');
+          return;
+        }else{
+          Swal.fire({
+                        title: "Le agradecemos su compra",
+                        text: "Pase un buen día.",
+                        icon: "error",
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: true
+                    });
+                    return;
+        }
       }
     
       const userProfile = () => {        
@@ -197,10 +215,10 @@ function App() {
         const existsUser = userAccounts.find((user) => user.name === formData.name);
     
         if (data.success && existsUser) {
-          const { email, pass, name, owned } = existsUser;
+          const { email, pass, name, phone, owned } = existsUser;
           if (userContext) {
-            userContext.dispatch({ type: 'SET_USERDATA', payload: { email, pass, name, owned } });
-            localStorage.setItem('user', JSON.stringify({ email, pass, name, owned }));
+            userContext.dispatch({ type: 'SET_USERDATA', payload: { email, pass, name, phone, owned } });
+            localStorage.setItem('user', JSON.stringify({ email, pass, name, phone, owned }));
             localStorage.setItem("isLogged", "true");
             navigate('/');
           }
