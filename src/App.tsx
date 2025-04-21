@@ -127,10 +127,42 @@ function App() {
       }, [dispatch,  gamesDataSinMapear, gamesError, gamesStatus, games])
 
       const addItemCart = (game_id: string) => {
+
+        const ownedGames = userContext?.state.user?.owned ?? [];
+
+        if (ownedGames.includes(game_id)) {
+          Swal.fire({
+            title: "Ya tienes este juego",
+            text: "¡El juego ya está en su cuenta!",
+            icon: "warning",
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: true
+          });
+          return;
+        }
+
         setCart((prevCart) => {
           if(prevCart.includes(game_id)){
+            Swal.fire({
+              title: "Ya dispone del juego en su carrito",
+              text: "Solo le falta comprarlo o puede seguir mirando la tienda.",
+              icon: "error",
+              timer: 3000,
+              timerProgressBar: true,
+              showConfirmButton: true
+          });      
             return prevCart;
           }
+
+          Swal.fire({
+            title: "¡Juego añadido!",
+            text: "Solo le falta comprarlo o puede seguir mirando la tienda.",
+            icon: "error",
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: true
+        });      
           return [...prevCart, game_id]        
         })
       }
