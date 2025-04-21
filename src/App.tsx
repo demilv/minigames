@@ -151,6 +151,7 @@ function App() {
           ...currentUser, owned:[...(currentUser!.owned ?? []), ...id] 
         }
 
+        try {
         const response = await fetch(addGamesToUser, {
           method: 'PUT',
           headers: {
@@ -169,19 +170,36 @@ function App() {
 
         if (!response.ok) {
           console.log('Sucedió un error');
-          return;
-        }else{
-          Swal.fire({
-                        title: "Le agradecemos su compra",
-                        text: "Pase un buen día.",
-                        icon: "error",
-                        timer: 3000,
-                        timerProgressBar: true,
-                        showConfirmButton: true
-                    });
-                    return;
+          return false;
         }
+
+        dispatch(usersThunk());
+
+        Swal.fire({
+            title: "Le agradecemos su compra",
+            text: "Pase un buen día.",
+            icon: "error",
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: true
+        });        
+        return true;
+
+      }catch (error) {
+        console.log('Error:', error);
+        Swal.fire({
+          title: 'Hubo un error',
+          text: 'No pudimos completar la compra. Inténtalo de nuevo.',
+          icon: 'error',
+          timer: 3000,
+          timerProgressBar: true,
+          showConfirmButton: true,
+        });    
+        return false;
       }
+
+      }
+      
     
       const userProfile = () => {        
         navigate(`/profile/${userContext?.state.user.name}`)

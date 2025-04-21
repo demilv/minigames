@@ -10,7 +10,7 @@ interface cart {
     cart: string[],
     removeItemCart: (id: string) => void,
     removeAllItemCart: () => void,
-    addGameToUser: (id: string[]) => void
+    addGameToUser: (id: string[]) => Promise<boolean>
 }
 
 const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart, addGameToUser}) => {    
@@ -30,7 +30,12 @@ const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart, addGameT
                             <StyledNothing mBottom={2}>¿Quieres este juego?</StyledNothing>    
                             <StyledCartButtonContainer>
                                 <MUIButtonGroup>
-                                    <MUIButton onClick={() => addGameToUser([game._id])}> Comprar!</MUIButton>
+                                    <MUIButton onClick={async () => {
+                                        const compraCorrecta = await addGameToUser([game._id]);
+                                        if (compraCorrecta){
+                                            removeItemCart(game._id)
+                                        }
+                                    }}> Comprar!</MUIButton>
                                 </MUIButtonGroup>
                                 <MUIButtonGroup>
                                     <MUIButton onClick={() => removeItemCart(game._id)}> Eliminar!</MUIButton>
@@ -50,7 +55,11 @@ const Cart: React.FC<cart> = ({cart, removeItemCart, removeAllItemCart, addGameT
             </StyledCartSideFramePage>}
             {cart.length > 0 && 
             <MUIButtonGroup>
-                <MUIButton onClick= {() => addGameToUser(cartGames.map(game => game._id))}> ¿Comprar todo?</MUIButton>
+                <MUIButton onClick= {async () => {
+                   const compraCorrecta = await addGameToUser(cartGames.map(game => game._id))
+                   if (compraCorrecta){
+                    removeAllItemCart()
+                   }}}> ¿Comprar todo?</MUIButton>
                 <MUIButton onClick= {removeAllItemCart}> ¿Eliminar carrito?</MUIButton>
             </MUIButtonGroup>}
         </StyledMain>
