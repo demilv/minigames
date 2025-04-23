@@ -176,6 +176,7 @@ function App() {
       }
 
       const addGameToUser = async (id:string[]) => {
+        console.log(userContext?.state.user)
         const currentUser = userContext?.state.user;
         const addGamesToUser = `${import.meta.env.VITE_MIAPI}/users/upUser/${currentUser?._id}`;
         const token = localStorage.getItem('authorization');
