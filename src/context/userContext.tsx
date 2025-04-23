@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 import React from "react";
 
   interface User {
+    _id:  string | null;
     name: string | null;
     email: string | null;
     pass: string | null;
@@ -18,7 +19,7 @@ import React from "react";
     children: React.ReactNode;
   }
   
-  type Action = | { type: 'SET_USERDATA'; payload: { name: string; email: string; pass: string; phone: string; owned: string[] } } | { type: 'LOGOUT' };
+  type Action = | { type: 'SET_USERDATA'; payload: { _id: string; name: string; email: string; pass: string; phone: string; owned: string[] } } | { type: 'LOGOUT' };
   
   interface UserContextType {
     state: State;
@@ -30,6 +31,7 @@ const userReducer = (state: State, action:Action) => {
         case "SET_USERDATA":
             return { ...state, 
                 user:{
+                        _id: action.payload._id,
                         name:action.payload.name,
                         email: action.payload.email,
                         pass: action.payload.pass,
@@ -39,6 +41,7 @@ const userReducer = (state: State, action:Action) => {
                     }};
         case "LOGOUT":
             return {...state, user:{
+                _id: null,
                 name:null,
                 email: null,
                 pass: null,
@@ -56,6 +59,7 @@ export const UserContext = createContext<UserContextType | null>(null);
 
 export const UserContextProvider: React.FC<UserContextProviderProps> = ({ children }) => {
       const [state, dispatch] = useReducer(userReducer, {user:{
+      _id: null,
       name:null,
       email: null,
       pass: null,

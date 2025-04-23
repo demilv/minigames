@@ -158,7 +158,7 @@ function App() {
           Swal.fire({
             title: "¡Juego añadido!",
             text: "Solo le falta comprarlo o puede seguir mirando la tienda.",
-            icon: "error",
+            icon: "success",
             timer: 3000,
             timerProgressBar: true,
             showConfirmButton: true
@@ -176,9 +176,9 @@ function App() {
       }
 
       const addGameToUser = async (id:string[]) => {
-        const addGamesToUser = `${import.meta.env.VITE_MIAPI}/users/upUser`;
-        const token = localStorage.getItem('authorization');
         const currentUser = userContext?.state.user;
+        const addGamesToUser = `${import.meta.env.VITE_MIAPI}/users/upUser/${currentUser?._id}`;
+        const token = localStorage.getItem('authorization');
         const newGameForUser = {
           ...currentUser, owned:[...(currentUser!.owned ?? []), ...id] 
         }
@@ -265,10 +265,10 @@ function App() {
         const existsUser = userAccounts.find((user) => user.name === formData.name);
     
         if (data.success && existsUser) {
-          const { email, pass, name, phone, owned } = existsUser;
+          const { _id, email, pass, name, phone, owned } = existsUser;
           if (userContext) {
-            userContext.dispatch({ type: 'SET_USERDATA', payload: { email, pass, name, phone, owned } });
-            localStorage.setItem('user', JSON.stringify({ email, pass, name, phone, owned }));
+            userContext.dispatch({ type: 'SET_USERDATA', payload: { _id, email, pass, name, phone, owned } });
+            localStorage.setItem('user', JSON.stringify({ _id, email, pass, name, phone, owned }));
             localStorage.setItem("isLogged", "true");
             navigate('/');
           }
