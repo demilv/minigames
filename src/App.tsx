@@ -211,7 +211,7 @@ function App() {
         Swal.fire({
             title: "Le agradecemos su compra",
             text: "Pase un buen día.",
-            icon: "error",
+            icon: "success",
             timer: 3000,
             timerProgressBar: true,
             showConfirmButton: true
