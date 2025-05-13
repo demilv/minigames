@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FrameScroll = styled.div`
+export const ScrollFrame = styled.div`
     margin: 15%;
     padding:5% 10%;
     background-color: #252525;
