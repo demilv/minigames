@@ -1,11 +1,12 @@
 import React from "react"
 import { BlackScreen } from "../../styledC/generic/Screens"
 
-interface scrolls {
+interface scrollsInterface {
     showData: (data: string) => void
+    onClose: () => void
 }
 
-const scrolls: React.FC<scrolls> = ({showData}) => {
+const Scrolls: React.FC<scrollsInterface> = ({showData}) => {
 
 
     return (
@@ -15,4 +16,4 @@ const scrolls: React.FC<scrolls> = ({showData}) => {
     )
 }
 
-export default scrolls
+export default Scrolls
