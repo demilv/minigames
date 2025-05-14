@@ -1,7 +1,7 @@
 import { MUIButtonSuccess } from "../../styledC/generic/MUIButtons";
 import { StyledLoginDiv, StyledLoginFirstHalf, StyledLoginSecondHalf, StyledLoginTitle ,StyledForm, StyledLoginNewUser } from "../../styledC/login/login";
 import { StyledCajas } from "../../styledC/generic/Boxes";
-import { Close } from "../../styledC/shop/pestañaTrial";
+import { Close } from "../../styledC/generic/Button";
 import { FormData as Form } from "../../features/types/interfaces";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -37,20 +37,20 @@ const Login: React.FC<login> = ({closeLoginForm, loginUser, newUser}) => {
         closeLoginForm()
     }
 
-    return (        
-        <StyledForm onSubmit={submitForm}>
-            <Close onClick={closeLoginForm} src="X.png"/>            
-            <StyledLoginDiv>
-                <StyledLoginFirstHalf src="juegosLogin.png"></StyledLoginFirstHalf>
-                <StyledLoginSecondHalf>
-                    <StyledLoginTitle> Logueate aquí</StyledLoginTitle>
-                    <StyledCajas type="name" id="name" name="name" placeholder="Nombre" onChange={changeData}></StyledCajas>
-                    <StyledCajas type="password" id="pass" name="pass" placeholder="Password" onChange={changeData}></StyledCajas>
-                    <MUIButtonSuccess type="submit"> Access</MUIButtonSuccess>
-                    <StyledLoginNewUser onClick={newUser}>¿Nuevo Usuario?</StyledLoginNewUser>
-                </StyledLoginSecondHalf>
-            </StyledLoginDiv>
-        </StyledForm>
+    return (       
+            <StyledForm onSubmit={submitForm}> 
+                <Close onClick={closeLoginForm} src="X.png" mTop={4} mLeft={78}/>                      
+                <StyledLoginDiv>
+                    <StyledLoginFirstHalf src="juegosLogin.png"></StyledLoginFirstHalf>
+                    <StyledLoginSecondHalf>
+                        <StyledLoginTitle> Logueate aquí</StyledLoginTitle>
+                        <StyledCajas type="name" id="name" name="name" placeholder="Nombre" onChange={changeData}></StyledCajas>
+                        <StyledCajas type="password" id="pass" name="pass" placeholder="Password" onChange={changeData}></StyledCajas>
+                        <MUIButtonSuccess type="submit"> Access</MUIButtonSuccess>
+                        <StyledLoginNewUser onClick={newUser}>¿Nuevo Usuario?</StyledLoginNewUser>
+                    </StyledLoginSecondHalf>
+                </StyledLoginDiv>
+            </StyledForm>
     )
 }
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ScrollFrame = styled.div`
-    margin: 15%;
     padding:5% 10%;
+    min-height:80%;
     background-color: #252525;
-    border: 20px solid #FFF0F0;
+    border: 10px solid #FFF0F0;
     display:flex;
     justify-content: center;
     align-items:center
@@ -12,5 +12,6 @@ export const ScrollFrame = styled.div`
 export const ScrollText = styled.h4`
     font-family: "VT323"; 
     color: #e59866;  
-    font-size: 1em
+    font-size: 1.5em;
+    line-height: 1.8;
 `

@@ -8,6 +8,6 @@ export const BlueVersion = styled.div`
     color:rgb(255, 98, 0);
     font-family:"Press Start 2P";
     position:fixed;
-    z-index:99999999999;
+    z-index:999999;
     line-height:2em;
 `

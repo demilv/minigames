@@ -88,6 +88,7 @@ export const StyledSITitle= styled.h4`
 
 export const StyledSIImg = styled.img`
     margin: 0 auto;
+    cursor:pointer;
     width:4em;
     height:4em;
 `

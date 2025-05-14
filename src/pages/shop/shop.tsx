@@ -15,11 +15,11 @@ interface shop {
 const Shop: React.FC<shop> = ({addItemCart}) => {
 
     const [isChatOpen, setChatOpen] = useState(false);
-    const [isScrollOpen, setScrollOpen] = useState<null | "reviews" | "instructions">(null);
+    const [isScrollOpen, setScrollOpen] = useState<null | "review" | "instructions">(null);
     const [gameSelected, setGameSelected] = useState("")
     const openChat = () => setChatOpen(true); 
     const closeChat = () => setChatOpen(false);
-    const openScroll1 = () => setScrollOpen("reviews")
+    const openScroll1 = () => setScrollOpen("review")
     const openScroll2 = () => setScrollOpen("instructions")
     const closeScroll = () => setScrollOpen(null)
     const gameData = useSelector(gamesDataSelect)
@@ -27,10 +27,10 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
 
     return (
-        <>
+        <>        
+            {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen} gameToShow={gameSelected}/>}
             <StyledMain>
             {isChatOpen && <ChatBubble closeChat={closeChat}/>}
-            {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen} gameToShow={gameSelected}/>}
                 <OpenChatButton onClick={openChat} src="bubbleChat.png" />  
                 {gameData.map((game) => 
                     game.status === true ? (

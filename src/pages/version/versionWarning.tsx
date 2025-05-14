@@ -1,6 +1,6 @@
 import { BlueVersion } from "../../styledC/version/versionWarning";
 import { BlackScreen } from "../../styledC/generic/Screens";
-import { CloseChatButton } from "../../styledC/shop/Chat";
+import { Close } from "../../styledC/generic/Button";
 
 interface trial {
     closeWindow: () => void;
@@ -9,7 +9,7 @@ interface trial {
 const VersionWarning: React.FC<trial> = ({closeWindow}) => {
   return(
         <BlackScreen>
-            <CloseChatButton onClick={closeWindow} src='X.png'/>            
+            <Close onClick={closeWindow} src='X.png' mLeft={82.5} mTop={2}/>            
             <BlueVersion>
                 <p>¡Bienvenido a mi aplicación! Esta es mi primera versión de la aplicacion y en
                 este recuadro puedes ver un resumen de lo que por ahora funciona y lo que no.
