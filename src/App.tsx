@@ -114,7 +114,9 @@ function App() {
                 name: game.name,
                 bImage: game.bImage,
                 price: game.price,
-                status: game.status
+                status: game.status,
+                instructions: game.instructions,
+                review: game.review
               };
               gamesDataMap.push(añadirGame)
             })

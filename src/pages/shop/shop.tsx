@@ -16,6 +16,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
     const [isChatOpen, setChatOpen] = useState(false);
     const [isScrollOpen, setScrollOpen] = useState<null | "reviews" | "instructions">(null);
+    const [gameSelected, setGameSelected] = useState("")
     const openChat = () => setChatOpen(true); 
     const closeChat = () => setChatOpen(false);
     const openScroll1 = () => setScrollOpen("reviews")

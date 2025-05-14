@@ -3,7 +3,9 @@ export interface Game{
     name: string,
     bImage: string,
     price: number,
-    status: boolean
+    status: boolean,
+    review: string,
+    instructions: string
 }
 
 export interface User {
