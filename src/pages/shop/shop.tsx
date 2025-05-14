@@ -30,14 +30,14 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
         <>
             <StyledMain>
             {isChatOpen && <ChatBubble closeChat={closeChat}/>}
-            {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen}/>}
+            {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen} gameToShow={gameSelected}/>}
                 <OpenChatButton onClick={openChat} src="bubbleChat.png" />  
                 {gameData.map((game) => 
                     game.status === true ? (
                     <StyledProductFrame key={game._id} back={game.bImage}>
                         <StyledInstructionsDiv>
                             <StyledSITitle>Reviews</StyledSITitle>
-                            <StyledSIImg onClick= {openScroll1} src="scroll.png"/>
+                            <StyledSIImg onClick= {() => {openScroll1(); setGameSelected(game._id)}} src="scroll.png"/>
                         </StyledInstructionsDiv>
                         <StyledLadoInfo>
                             <StyledTitleProduct>{game.name + ' ' + game.price + '$'}</StyledTitleProduct>
@@ -48,7 +48,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
                         </StyledLadoInfo>
                         <StyledInstructionsDiv inverse={true}>
                             <StyledSITitle>Instructions</StyledSITitle>
-                            <StyledSIImg onClick = {openScroll2} src="scroll.png"/>
+                            <StyledSIImg onClick ={() => {openScroll2(); setGameSelected(game._id)}}  src="scroll.png"/>
                         </StyledInstructionsDiv>
                     </StyledProductFrame> ) : null
                 )}            
