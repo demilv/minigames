@@ -12,3 +12,15 @@ const io = new Server(server, {
     origin: "*",
   },
 });
+
+io.on("connection", (socket) => {
+  console.log("Se unió ", socket.id, " al chat");
+
+  socket.on("send-message", (message) => {
+    io.emit(socket.id, " envió un mensaje:", message);
+  });
+});
+
+server.listen(3001, () => {
+  console.log("Servidor en http://localhost:3001");
+});
