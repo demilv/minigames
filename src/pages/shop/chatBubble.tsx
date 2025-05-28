@@ -37,11 +37,7 @@ const ChatBubble: React.FC<trial> = ({ closeChat }) => {
         ))}
       </ChatReplies>
       <ChatInputContainer>
-        <ChatInput
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Escribe un mensaje..."
+        <ChatInput type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Escribe un mensaje..." 
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();
