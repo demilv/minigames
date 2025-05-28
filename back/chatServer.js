@@ -1,7 +1,7 @@
-const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
-const cors = require("cors");
+import express from "express";
+import http from "http";
+import { Server } from "socket.io";
+import cors from "cors";
 
 const app = express();
 app.use(cors());
@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
   console.log("Se unió ", socket.id, " al chat");
 
   socket.on("send-message", (message) => {
-    io.emit(socket.id, " envió un mensaje:", message);
+    io.emit("receive-message", `${socket.id.slice(0, 5)}: ${message}`);
   });
 });
 
