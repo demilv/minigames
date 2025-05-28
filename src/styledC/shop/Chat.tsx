@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Chat = styled.div`
   position: fixed;
-  width: 25%;
+  width: 22%;
   height: 75%;
   right: 1%;
-  top: 10%;
-  z-index: 9999;
-  background-color: #ffe4e1; /* rosa suave */
+  top: 22%;
+  z-index: 9999999;
+  background-color:rgb(153, 233, 237);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -27,7 +27,7 @@ export const ChatInputContainer = styled.div`
   display: flex;
   padding: 0.5em;
   gap: 0.5em;
-  border-top: 1px solid #ccc;
+  border-top: 2px solid #cde;
 `;
 
 export const ChatInput = styled.input`
