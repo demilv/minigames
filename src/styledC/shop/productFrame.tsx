@@ -93,7 +93,7 @@ export const StyledSIImg = styled.img`
     height:4em;
 `
 
-export const StylePageButton = styled.button`
+export const StyledPageButton = styled.button`
     min-width:1.5em;
     min-height:1.5em;
     padding: 0.3em;
