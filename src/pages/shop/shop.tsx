@@ -17,30 +17,40 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     const [isChatOpen, setChatOpen] = useState(false);
     const [isScrollOpen, setScrollOpen] = useState<null | "review" | "instructions">(null);
     const [gameSelected, setGameSelected] = useState("")
+    const [pageActual, setPageActual] = useState(1)
     const [pages, setPages] = useState(1)
+    const [pageButtons, setPageButtons] = useState<JSX.Element[]>([]);
+    const [buttonsMostrar, setButtonsMostrar] = useState<JSX.Element[]>([])
     const openChat = () => setChatOpen(true); 
     const closeChat = () => setChatOpen(false);
     const openScroll1 = () => setScrollOpen("review")
     const openScroll2 = () => setScrollOpen("instructions")
     const closeScroll = () => setScrollOpen(null)
-    const gameData = useSelector(gamesDataSelect)
-    const pageButtons = [];
+    const gameData = useSelector(gamesDataSelect)   
 
 
     useEffect(() => {
-
-        if(gameData){
-            setPages(Math.ceil(gameData.length / 3));
-        }
-
+        if (!gameData) return;        
+        setPages(Math.ceil(gameData.length / 3));
+        
+        const buttons = [];
         for (let i = 0; i < pages; i++) {
-            pageButtons.push(
-                <StyledPageButton key={i}>
+            buttons.push(
+                <StyledPageButton onClick={() => {setPageActual(i)}} key={i}>
                     {i + 1}
                 </StyledPageButton>
             );
         }
+        setPageButtons(buttons)
     }, [gameData]) 
+
+    useEffect(() => {
+        if (pageButtons.length === 0) return;
+        const firstButton = Math.max(pageActual-1, 1)
+        const lastButton = Math.min(pageActual+1, pages-1)
+        const buttons = pageButtons.slice(firstButton, lastButton+1)
+        setButtonsMostrar(buttons)
+    }, [pageActual, pageButtons, pages])
 
 
 
