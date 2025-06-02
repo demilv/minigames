@@ -92,3 +92,11 @@ export const StyledSIImg = styled.img`
     width:4em;
     height:4em;
 `
+
+export const StylePageButton = styled.button`
+    min-width:1.5em;
+    min-height:1.5em;
+    padding: 0.3em;
+    color: #e59866;
+    background-color:#252525
+`
