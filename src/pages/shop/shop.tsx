@@ -1,7 +1,7 @@
 import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledQuickDescription, StyledSIImg, StyledSITitle, StyledTitleProduct } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/generic/Screens";
 import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OpenChatButton } from "../../styledC/shop/Chat";
 import ChatBubble from "./chatBubble";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
@@ -17,6 +17,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     const [isChatOpen, setChatOpen] = useState(false);
     const [isScrollOpen, setScrollOpen] = useState<null | "review" | "instructions">(null);
     const [gameSelected, setGameSelected] = useState("")
+    const [pages, setPages] = useState(1)
     const openChat = () => setChatOpen(true); 
     const closeChat = () => setChatOpen(false);
     const openScroll1 = () => setScrollOpen("review")
@@ -24,6 +25,11 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     const closeScroll = () => setScrollOpen(null)
     const gameData = useSelector(gamesDataSelect)
 
+    useEffect(() => {
+        if(gameData){
+            setPages(Math.ceil(gameData.length / 3));
+        }
+    }, [gameData]) 
 
 
     return (
