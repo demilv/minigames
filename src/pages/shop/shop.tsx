@@ -39,7 +39,11 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
         const buttons = [];
         for (let i = 0; i < totalPages; i++) {
             buttons.push(
-                <StyledPageButton onClick={() => {setPageActual(i)}} key={i}>
+                <StyledPageButton onClick={() => {
+                    setPageActual(i);
+                    window.scrollTo({ top: 0, behavior: "smooth" }) 
+                }} 
+                key={i}>
                     {i + 1}
                 </StyledPageButton>
             );
@@ -95,7 +99,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     return (
         <>        
             {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen} gameToShow={gameSelected}/>}
-            <StyledMain>
+            <StyledMain mLeft={5}>
                     {gamesChosenShow}
                     <StyledFrameButtons>{buttonsMostrar}</StyledFrameButtons>
             </StyledMain>

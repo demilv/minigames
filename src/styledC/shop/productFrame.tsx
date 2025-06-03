@@ -70,8 +70,9 @@ export const StyledQuickDescription = styled.h5<{inverse?: boolean}>`
 `
 export const StyledInstructionsDiv = styled.div<{inverse?: boolean}>` 
     border: none;   
-    margin: 2em 0 0 3em;    
+    margin: 2em 0 0 0;    
     margin-right: ${props => props.inverse ? '0' : '3em'};
+    margin-left: ${props => props.inverse ? '3em': '0'};
     display:flex;
     flex-direction:column;   
     z-index:9;
