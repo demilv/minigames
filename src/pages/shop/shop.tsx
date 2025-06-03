@@ -21,6 +21,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     const [pages, setPages] = useState(1)
     const [pageButtons, setPageButtons] = useState<JSX.Element[]>([]);
     const [buttonsMostrar, setButtonsMostrar] = useState<JSX.Element[]>([])
+    const [gamesChosenShow, setGamesChosenShow] =useState<JSX.Element[]>([])
     const openChat = () => setChatOpen(true); 
     const closeChat = () => setChatOpen(false);
     const openScroll1 = () => setScrollOpen("review")
@@ -54,14 +55,35 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
     useEffect(() => {
         if (pageActual=== 0) return;
-        const chosenGames = [];
-        const index = pageActual*3
-        for (let i = 0; i < 2; i++){
-            chosenGames.push(
-                gameData[index-3+i]
-            )
-        }
-        
+        const index = pageActual-1*3
+        const chosenGames = gameData.slice(index, index + 3);
+
+        const gamesMostrar = chosenGames
+        .filter(game => game && game.status === true)
+        .map(game => (
+            <StyledProductFrame key={game._id} back={game.bImage}>
+                <StyledInstructionsDiv>
+                    <StyledSITitle>Reviews</StyledSITitle>
+                    <StyledSIImg onClick={() => { openScroll1(); setGameSelected(game._id); }} src="scroll.png" />
+                </StyledInstructionsDiv>
+                <StyledLadoInfo>
+                    <StyledTitleProduct>{game.name + ' ' + game.price + '$'}</StyledTitleProduct>
+                    <StyledQuickDescription>
+                        Quick up to 2-player matches where the winner takes it all!
+                    </StyledQuickDescription>
+                    <MUIButtonGroup>
+                        <MUIButton onClick={() => addItemCart(game._id)}>Add to cart!</MUIButton>
+                    </MUIButtonGroup>
+                </StyledLadoInfo>
+                <StyledInstructionsDiv inverse={true}>
+                    <StyledSITitle>Instructions</StyledSITitle>
+                    <StyledSIImg onClick={() => { openScroll2(); setGameSelected(game._id); }} src="scroll.png" />
+                </StyledInstructionsDiv>
+            </StyledProductFrame>
+        ));
+
+        setGamesChosenShow(gamesMostrar);
+
     }, [pageActual])
 
 
@@ -72,7 +94,6 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
             <StyledMain>
             {isChatOpen && <ChatBubble closeChat={closeChat}/>}
                 <OpenChatButton onClick={openChat} src="bubbleChat.png" />
-
                         {gameData.map((game) => 
                             game.status === true ? (
                             <StyledProductFrame key={game._id} back={game.bImage}>
