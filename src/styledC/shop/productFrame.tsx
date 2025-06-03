@@ -100,3 +100,14 @@ export const StyledPageButton = styled.button`
     color: #e59866;
     background-color:#252525
 `
+
+export const StyledFrameButtons = styled.div`
+    min-width: 15em;
+    min-height:2.5em;
+    padding:0.2em;
+    background-color:#252525;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center
+`
