@@ -1,4 +1,4 @@
-import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledPageButton, StyledQuickDescription, StyledSIImg, StyledSITitle, StyledTitleProduct } from "../../styledC/shop/productFrame";
+import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledPageButton, StyledQuickDescription, StyledSIImg, StyledSITitle, StyledTitleProduct, StyledFrameButtons } from "../../styledC/shop/productFrame";
 import { StyledMain } from "../../styledC/generic/Screens";
 import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 import { useEffect, useState } from "react";
@@ -52,6 +52,18 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
         setButtonsMostrar(buttons)
     }, [pageActual, pageButtons, pages])
 
+    useEffect(() => {
+        if (pageActual=== 0) return;
+        const chosenGames = [];
+        const index = pageActual*3
+        for (let i = 0; i < 2; i++){
+            chosenGames.push(
+                gameData[index-3+i]
+            )
+        }
+        
+    }, [pageActual])
+
 
 
     return (
@@ -80,7 +92,8 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
                                     <StyledSIImg onClick ={() => {openScroll2(); setGameSelected(game._id)}}  src="scroll.png"/>
                                 </StyledInstructionsDiv>
                             </StyledProductFrame> ) : null
-                        )}    
+                        )}  
+                    <StyledFrameButtons>{buttonsMostrar}</StyledFrameButtons>
             </StyledMain>
         </>
     )
