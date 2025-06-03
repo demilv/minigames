@@ -2,8 +2,8 @@ import { StyledInstructionsDiv, StyledLadoInfo, StyledProductFrame, StyledPageBu
 import { StyledMain } from "../../styledC/generic/Screens";
 import { MUIButton, MUIButtonGroup } from "../../styledC/generic/MUIButtons";
 import { useEffect, useState } from "react";
-import { OpenChatButton } from "../../styledC/shop/Chat";
-import ChatBubble from "./chatBubble";
+//import { OpenChatButton } from "../../styledC/shop/Chat";
+//import ChatBubble from "./chatBubble";
 import { gamesDataSelect } from "../../features/gameOperations/gameSlice";
 import { useSelector } from "react-redux";
 import Scrolls from "./scrolls";
@@ -14,7 +14,7 @@ interface shop {
 
 const Shop: React.FC<shop> = ({addItemCart}) => {
 
-    const [isChatOpen, setChatOpen] = useState(false);
+    //const [isChatOpen, setChatOpen] = useState(false);
     const [isScrollOpen, setScrollOpen] = useState<null | "review" | "instructions">(null);
     const [gameSelected, setGameSelected] = useState("")
     const [pageActual, setPageActual] = useState(1)
@@ -22,8 +22,8 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
     const [pageButtons, setPageButtons] = useState<JSX.Element[]>([]);
     const [buttonsMostrar, setButtonsMostrar] = useState<JSX.Element[]>([])
     const [gamesChosenShow, setGamesChosenShow] =useState<JSX.Element[]>([])
-    const openChat = () => setChatOpen(true); 
-    const closeChat = () => setChatOpen(false);
+    //const openChat = () => setChatOpen(true); 
+    //const closeChat = () => setChatOpen(false);
     const openScroll1 = () => setScrollOpen("review")
     const openScroll2 = () => setScrollOpen("instructions")
     const closeScroll = () => setScrollOpen(null)
@@ -32,7 +32,9 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
     useEffect(() => {
         if (!gameData) return;        
-        setPages(Math.ceil(gameData.length / 3));
+
+        const totalPages = Math.ceil(gameData.length / 3);
+        setPages(totalPages);
         
         const buttons = [];
         for (let i = 0; i < pages; i++) {
@@ -47,15 +49,15 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
     useEffect(() => {
         if (pageButtons.length === 0) return;
-        const firstButton = Math.max(pageActual-1, 1)
-        const lastButton = Math.min(pageActual+1, pages-1)
+        const firstButton = Math.max(pageActual - 2, 0);
+        const lastButton = Math.min(pageActual, pages - 1);
         const buttons = pageButtons.slice(firstButton, lastButton+1)
         setButtonsMostrar(buttons)
     }, [pageActual, pageButtons, pages])
 
     useEffect(() => {
         if (pageActual=== 0) return;
-        const index = pageActual-1*3
+        const index = (pageActual-1)*3
         const chosenGames = gameData.slice(index, index + 3);
 
         const gamesMostrar = chosenGames
@@ -84,7 +86,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
 
         setGamesChosenShow(gamesMostrar);
 
-    }, [pageActual])
+    }, [pageActual, gameData])
 
 
 
@@ -92,28 +94,7 @@ const Shop: React.FC<shop> = ({addItemCart}) => {
         <>        
             {isScrollOpen && <Scrolls closeScroll = {closeScroll} dataToShow={isScrollOpen} gameToShow={gameSelected}/>}
             <StyledMain>
-            {isChatOpen && <ChatBubble closeChat={closeChat}/>}
-                <OpenChatButton onClick={openChat} src="bubbleChat.png" />
-                        {gameData.map((game) => 
-                            game.status === true ? (
-                            <StyledProductFrame key={game._id} back={game.bImage}>
-                                <StyledInstructionsDiv>
-                                    <StyledSITitle>Reviews</StyledSITitle>
-                                    <StyledSIImg onClick= {() => {openScroll1(); setGameSelected(game._id)}} src="scroll.png"/>
-                                </StyledInstructionsDiv>
-                                <StyledLadoInfo>
-                                    <StyledTitleProduct>{game.name + ' ' + game.price + '$'}</StyledTitleProduct>
-                                    <StyledQuickDescription>Quick up to 2-player matches where the winner takes it all!</StyledQuickDescription>
-                                    <MUIButtonGroup>
-                                        <MUIButton onClick={() => addItemCart(game._id)}> Add to cart!</MUIButton>
-                                    </MUIButtonGroup>
-                                </StyledLadoInfo>
-                                <StyledInstructionsDiv inverse={true}>
-                                    <StyledSITitle>Instructions</StyledSITitle>
-                                    <StyledSIImg onClick ={() => {openScroll2(); setGameSelected(game._id)}}  src="scroll.png"/>
-                                </StyledInstructionsDiv>
-                            </StyledProductFrame> ) : null
-                        )}  
+                    {gamesChosenShow}
                     <StyledFrameButtons>{buttonsMostrar}</StyledFrameButtons>
             </StyledMain>
         </>

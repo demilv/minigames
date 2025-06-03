@@ -109,5 +109,6 @@ export const StyledFrameButtons = styled.div`
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content:center
+    justify-content:center;
+    gap:1em
 `
